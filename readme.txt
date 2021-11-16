@@ -54,6 +54,7 @@ Halte Dich mit unserem [Newsletter](https://n3rds.work/webmasterservice-n3rdswor
 = 1.2.2 = DerN3rd =
 
 * +Psource Updater v.1.1
+* Textanpassungen
 
 = 1.2.1 = DerN3rd =
 
