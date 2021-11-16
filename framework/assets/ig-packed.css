@@ -1249,7 +1249,8 @@
 }
 .ig-container h4,
 .ig-container .h4 {
-  font-size: 18px;
+  font-size: small;
+  padding-left: 1em
 }
 .ig-container h5,
 .ig-container .h5 {
