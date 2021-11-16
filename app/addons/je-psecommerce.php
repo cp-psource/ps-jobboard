@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * Name: PSeCommerce integration
+ * Description: PSeCommerce in PS Jobboard integrieren, PSeCommerce erforderlich
+ * Author: WMS N@W
+ * Required: psecommerce/psecommerce.php
+ */
+class JE_PSeCommerce
+{
+    public function __construct()
+    {
+        global $mp;
+        if (is_object($mp) && $mp instanceof PSeCommerce) {
+            include_once(je()->plugin_path . 'app/components/ig-wallet.php');
+            include_once(je()->plugin_path . 'app/components/je-credit-rules.php');
+        } else {
+            /**
+             * this is the case if the add-on activated, but admin deactivated MP plugin
+             * @since 1.0.1.9
+             */
+            $settings = je()->settings()->plugins;
+            if (in_array(__FILE__, $settings)) {
+                //add an admin notice
+                add_action('admin_notices', array(&$this, 'admin_notices'));
+            }
+        }
+
+
+        //disabled all the product
+        add_action('je_addon_activated', array(&$this, 'active'), 10, 2);
+        add_action('je_addon_deactivated', array(&$this, 'clean_up'), 10, 2);
+    }
+
+    /**
+     * Show admin notice if the addon enabled without psecommerce
+     * @since 1.0.1.9
+     */
+    function admin_notices()
+    {
+        $class = "error";
+        $message = __("Die Erweiterung <strong>PSeCommerce Integration</strong> von <strong>PS Jobboard</strong> benötigt <strong>PSeCommerce</strong>", 'psjb');
+        echo "<div class=\"$class\"> <p>$message</p></div>";
+    }
+
+    function active($id, $meta)
+    {
+        if ($id != __FILE__) {
+            return;
+        }
+
+        $options = get_option('ig_credit_plan');
+        foreach ($options as $plan) {
+            $post = get_post($plan['product_id']);
+            if (is_object($post)) {
+                $post->post_status = 'publish';
+                wp_update_post($post->to_array());
+            }
+        }
+    }
+
+    function clean_up($id, $meta)
+    {
+        if ($id != __FILE__) {
+            return;
+        }
+
+        $options = get_option('ig_credit_plan');
+        foreach ($options as $plan) {
+            $post = get_post($plan['product_id']);
+            if (is_object($post)) {
+                $post->post_status = 'draft';
+                wp_update_post($post->to_array());
+            }
+        }
+    }
+}
+
+new JE_PSeCommerce();
