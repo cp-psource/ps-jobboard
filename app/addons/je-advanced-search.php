@@ -562,7 +562,7 @@ INNER JOIN ' . $wpdb->prefix . 'postmeta max_price ON max_price.post_id = posts.
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 20%"><?php _e( 'Category', 'psjb' ) ?></td>
+                            <td style="width: 20%"><?php _e( 'Kategorie', 'psjb' ) ?></td>
                             <td style="width: 80%">
 								<?php
 								$data = array_combine( wp_list_pluck( get_terms( 'jbp_category', 'hide_empty=0' ), 'term_id' ), wp_list_pluck( get_terms( 'jbp_category', 'hide_empty=0' ), 'name' ) );
@@ -573,13 +573,13 @@ INNER JOIN ' . $wpdb->prefix . 'postmeta max_price ON max_price.post_id = posts.
 									'attributes' => array(
 										'style' => 'width:100%',
 									),
-									'nameless'   => __( '--SELECT--', 'psjb' )
+									'nameless'   => __( '--AUSWÄHLEN--', 'psjb' )
 								) );
 								?>
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 20%"><?php _e( 'Order By', 'psjb' ) ?></td>
+                            <td style="width: 20%"><?php _e( 'Sortieren nach', 'psjb' ) ?></td>
                             <td style="width: 80%">
                                 <label><input <?php checked( $order_by, 'name' ) ?> type="radio" value="name"
                                                                                     name="order_by">&nbsp;
@@ -587,11 +587,11 @@ INNER JOIN ' . $wpdb->prefix . 'postmeta max_price ON max_price.post_id = posts.
                                 </label>&nbsp;&nbsp;
                                 <label>
                                     <input <?php checked( $order_by, 'latest' ) ?> type="radio" value="latest"
-                                                                                   name="order_by"> <?php _e( 'Latest', 'psjb' ) ?>
+                                                                                   name="order_by"> <?php _e( 'Neueste', 'psjb' ) ?>
                                 </label> &nbsp;&nbsp;
                                 <label><input <?php checked( $order_by, 'ending' ) ?> type="radio" value="ending"
                                                                                       name="order_by">&nbsp;
-									<?php _e( 'About to End', 'psjb' ) ?>
+									<?php _e( 'Bald zu Ende', 'psjb' ) ?>
                                 </label>
                             </td>
                         </tr>
@@ -599,10 +599,10 @@ INNER JOIN ' . $wpdb->prefix . 'postmeta max_price ON max_price.post_id = posts.
                             <td></td>
                             <td>
                                 <button type="submit"
-                                        class="btn btn-xs btn-primary"><?php _e( 'Search', 'psjb' ) ?></button>
+                                        class="btn btn-xs btn-primary"><?php _e( 'Suche', 'psjb' ) ?></button>
                                 &nbsp;
                                 <button type="button"
-                                        class="btn btn-xs cancel_search_form btn-default"><?php _e( 'Cancel', 'psjb' ) ?></button>
+                                        class="btn btn-xs cancel_search_form btn-default"><?php _e( 'Abbrechen', 'psjb' ) ?></button>
                             </td>
                         </tr>
                     </table>
@@ -614,20 +614,20 @@ INNER JOIN ' . $wpdb->prefix . 'postmeta max_price ON max_price.post_id = posts.
                     <input type="hidden" name="advance_search" value="1">
                     <table class="table">
                         <tr>
-                            <td style="width: 20%"><?php _e( 'Location', 'psjb' ) ?></td>
+                            <td style="width: 20%"><?php _e( 'Standort', 'psjb' ) ?></td>
                             <td style="width: 80%">
 								<?php
 								$selected = ( isset( $_GET['country'] ) && ! empty( $_GET['country'] ) ) ? $_GET['country'] : null;
 								echo IG_Form::country_select( array(
 									'name'     => 'country',
 									'selected' => $selected,
-									'nameless' => __( '--Select--', 'psjb' )
+									'nameless' => __( '--Auswählen--', 'psjb' )
 								) );
 								?>
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 20%"><?php _e( 'Skill', 'psjb' ) ?></td>
+                            <td style="width: 20%"><?php _e( 'Fähigkeit', 'psjb' ) ?></td>
                             <td style="width: 80%">
 								<?php
 								$selected = ( isset( $_GET['skill'] ) && ! empty( $_GET['skill'] ) ) ? $_GET['skill'] : null;
@@ -637,13 +637,13 @@ INNER JOIN ' . $wpdb->prefix . 'postmeta max_price ON max_price.post_id = posts.
 									'name'     => 'skill',
 									'data'     => $skills,
 									'selected' => $selected,
-									'nameless' => __( '--Select--', 'psjb' )
+									'nameless' => __( '--Auswählen--', 'psjb' )
 								) );
 								?>
                             </td>
                         </tr>
                         <tr>
-                            <td style="width: 20%"><?php _e( 'Order By', 'psjb' ) ?></td>
+                            <td style="width: 20%"><?php _e( 'Sortieren nach', 'psjb' ) ?></td>
                             <td style="width: 80%">
                                 <label><input <?php checked( $order_by, 'name' ) ?> type="radio" value="name"
                                                                                     name="order_by">&nbsp;
@@ -651,11 +651,11 @@ INNER JOIN ' . $wpdb->prefix . 'postmeta max_price ON max_price.post_id = posts.
                                 </label>&nbsp;&nbsp;
                                 <label>
                                     <input <?php checked( $order_by, 'popular' ) ?> type="radio" value="popular"
-                                                                                    name="order_by"> <?php _e( 'Most Popular', 'psjb' ) ?>
+                                                                                    name="order_by"> <?php _e( 'Am beliebtesten', 'psjb' ) ?>
                                 </label> &nbsp;&nbsp;
                                 <label><input <?php checked( $order_by, 'like' ) ?> type="radio" value="like"
                                                                                     name="order_by">&nbsp;
-									<?php _e( 'Most Likes', 'psjb' ) ?>
+									<?php _e( 'Die meisten Likes', 'psjb' ) ?>
                                 </label>
                             </td>
                         </tr>
@@ -663,10 +663,10 @@ INNER JOIN ' . $wpdb->prefix . 'postmeta max_price ON max_price.post_id = posts.
                             <td></td>
                             <td>
                                 <button type="submit"
-                                        class="btn btn-xs btn-primary"><?php _e( 'Search', 'psjb' ) ?></button>
+                                        class="btn btn-xs btn-primary"><?php _e( 'Suche', 'psjb' ) ?></button>
                                 &nbsp;
                                 <button type="button"
-                                        class="btn btn-xs cancel_search_form btn-default"><?php _e( 'Cancel', 'psjb' ) ?></button>
+                                        class="btn btn-xs cancel_search_form btn-default"><?php _e( 'Abbrechen', 'psjb' ) ?></button>
                             </td>
                         </tr>
                     </table>

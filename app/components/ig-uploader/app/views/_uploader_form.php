@@ -40,7 +40,7 @@
     <div class="row">
         <div class="col-md-12">
             <button class="btn btn-default btn-sm igu-close-uploader"
-                    type="button"><?php _e("Cancel", ig_uploader()->domain) ?></button>
+                    type="button"><?php _e("Abbrechen", ig_uploader()->domain) ?></button>
             <button class="btn btn-primary btn-sm" type="submit"><?php _e("Übermitteln", ig_uploader()->domain) ?></button>
         </div>
         <div class="clearfix"></div>
