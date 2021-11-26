@@ -81,7 +81,7 @@
                     <div
                         class="form-group <?php echo ($model->has_error("budget") || $model->has_error("min_budget") || $model->has_error("max_budget")) ? "has-error" : null ?>">
                         <label
-                            class="col-sm-2 control-label"><?php _e('Budget ($)', 'psjb') ?>
+                            class="col-sm-2 control-label"><?php _e('Budget (€)', 'psjb') ?>
                         </label>
 
                         <div class="col-sm-8">
