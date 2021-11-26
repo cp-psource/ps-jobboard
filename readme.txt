@@ -54,6 +54,7 @@ Halte Dich mit unserem [Newsletter](https://n3rds.work/webmasterservice-n3rdswor
 = 1.2.3 = DerN3rd =
 
 * Textanpassungen
+* Select2 Update
 
 = 1.2.2 = DerN3rd =
 
