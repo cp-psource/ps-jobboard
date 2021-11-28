@@ -94,7 +94,7 @@ if (!class_exists('MM_WYSIWYG')) {
                 <script type="text/javascript">
                     jQuery(document).ready(function ($) {
                         function load_editor() {
-                            if ($('.mm_wsysiwyg').size() > 0) {
+                            if ($('.mm_wsysiwyg').length > 0) {
                                 $('.mm_wsysiwyg').sceditor({
                                     plugins: "bbcode",
                                     autoUpdate: true,
@@ -126,7 +126,7 @@ if (!class_exists('MM_WYSIWYG')) {
                 <script type="text/javascript">
                     jQuery(document).ready(function ($) {
                         function load_editor() {
-                            if ($('.mm_wsysiwyg').size() > 0) {
+                            if ($('.mm_wsysiwyg').length > 0) {
                                 var editors = $('.mm_wsysiwyg').sceditor({
                                     plugins: "xhtml",
                                     autoUpdate: true,

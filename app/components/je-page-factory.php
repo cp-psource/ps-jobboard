@@ -29,7 +29,7 @@ class JE_Page_Factory
         $this->jobs_obj = get_post_type_object('jbp_job');
         $this->expert_obj = get_post_type_object('jbp_pro');
         //prepared content
-        $this->warning = __("<!-- You may edit this page, the title and the slug, but it requires a minimum of the correct page shortcode to function. You can recreate the original default page by deleting this one. -->\n", 'psjb') . PHP_EOL;
+        $this->warning = __("<!-- Du kannst diese Seite, den Titel und den Slug bearbeiten, aber es erfordert als Minimum den richtigen Seiten-Shortcode, um zu funktionieren. Du kannst die ursprüngliche Standardseite neu erstellen, indem Du diese löschst. -->\n", 'psjb') . PHP_EOL;
         $this->buttons = '<p style="text-align: center">[jbp-job-browse-btn][jbp-expert-browse-btn][jbp-job-post-btn][jbp-expert-post-btn][jbp-my-job-btn][jbp-expert-profile-btn]</p>' . PHP_EOL;
     }
 
@@ -60,7 +60,7 @@ class JE_Page_Factory
         $id = je()->settings()->landing_page;
         if (empty($id) || !$this->page_exist($id)) {
             $args = array(
-                'post_title' => __('Jobs & Experts', 'psjb'),
+                'post_title' => __('Jobs & Experten', 'psjb'),
                 'post_name' => __('jobs-experts', 'psjb'),
                 'post_status' => 'publish',
                 'post_author' => 1,
@@ -96,7 +96,7 @@ class JE_Page_Factory
         $id = je()->settings()->job_add;
         if (empty($id) || !$this->page_exist($id)) {
             $args = array(
-                'post_title' => sprintf(__('Add a %s', 'psjb'), $this->jobs_obj->labels->singular_name),
+                'post_title' => sprintf(__('Einen %s hinzufügen', 'psjb'), $this->jobs_obj->labels->singular_name),
                 'post_name' => sprintf(__('add-a-%s', 'psjb'), $this->jobs_obj->rewrite['slug']),
                 'post_status' => 'virtual',
                 'post_author' => 1,
@@ -123,7 +123,7 @@ class JE_Page_Factory
         $id = je()->settings()->job_edit;
         if (empty($id) || !$this->page_exist($id)) {
             $args = array(
-                'post_title' => sprintf(__('Edit %s', 'psjb'), $this->jobs_obj->labels->singular_name),
+                'post_title' => sprintf(__('Bearbeite %s', 'psjb'), $this->jobs_obj->labels->singular_name),
                 'post_name' => sprintf(__('edit-%s', 'psjb'), $this->jobs_obj->rewrite['slug']),
                 'post_status' => 'virtual',
                 'post_author' => 1,
@@ -209,7 +209,7 @@ class JE_Page_Factory
 
         if (empty($id) || !$this->page_exist($id)) {
             $args = array(
-                'post_title' => sprintf(__('My %s', 'psjb'), $this->jobs_obj->labels->name),
+                'post_title' => sprintf(__('Mein %s', 'psjb'), $this->jobs_obj->labels->name),
                 'post_name' => sprintf(__('my-%s', 'psjb'), $this->jobs_obj->rewrite['slug'] . 's'),
                 'post_status' => 'virtual',
                 'post_author' => 1,
@@ -237,7 +237,7 @@ class JE_Page_Factory
 
         if (empty($id) || !$this->page_exist($id)) {
             $args = array(
-                'post_title' => sprintf(__('Add a %s', 'psjb'), $this->expert_obj->labels->singular_name),
+                'post_title' => sprintf(__('Hinzufügen eines %s', 'psjb'), $this->expert_obj->labels->singular_name),
                 'post_name' => sprintf(__('add-a-%s', 'psjb'), $this->expert_obj->rewrite['slug']),
                 'post_status' => 'virtual',
                 'post_author' => 1,
@@ -265,7 +265,7 @@ class JE_Page_Factory
 
         if (empty($id) || !$this->page_exist($id)) {
             $args = array(
-                'post_title' => sprintf(__('Edit %s', 'psjb'), $this->expert_obj->labels->singular_name),
+                'post_title' => sprintf(__('Bearbeite %s', 'psjb'), $this->expert_obj->labels->singular_name),
                 'post_name' => sprintf(__('edit-%s', 'psjb'), $this->expert_obj->rewrite['slug']),
                 'post_status' => 'virtual',
                 'post_author' => 1,
@@ -350,7 +350,7 @@ class JE_Page_Factory
 
         if (empty($id) || !$this->page_exist($id)) {
             $args = array(
-                'post_title' => sprintf(__('My %s Profile', 'psjb'), $this->expert_obj->labels->name),
+                'post_title' => sprintf(__('Mein %s Profil', 'psjb'), $this->expert_obj->labels->name),
                 'post_name' => sprintf(__('my-%s-profile', 'psjb'), $this->expert_obj->rewrite['slug'] . 's'),
                 'post_status' => 'virtual',
                 'post_author' => 1,

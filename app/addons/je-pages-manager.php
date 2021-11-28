@@ -531,7 +531,7 @@ class JE_Pages_Manager
                         },
                         success: function (data) {
                             var element = that.parent().parent().find('select').first();
-                            $.get('<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>', function (html) {
+                            $.get('<?php echo "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>', function (html) {
                                 html = $(html);
                                 var clone = html.find('select[name="' + element.attr('name') + '"]');
                                 element.replaceWith(clone);

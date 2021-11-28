@@ -195,7 +195,7 @@
                 suppressScrollX: true
             });
             //trigger read
-            if ($('.load-conv.active').size() > 0) {
+            if ($('.load-conv.active').length > 0) {
                 $('.load-conv.active').first().trigger('click');
             }
         })

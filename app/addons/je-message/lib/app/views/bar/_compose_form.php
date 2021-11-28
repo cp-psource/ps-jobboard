@@ -89,7 +89,7 @@
 <!-- /.modal -->
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
-        if($(".mm-compose-admin-bar a").size() > 0) {
+        if($(".mm-compose-admin-bar a").length > 0) {
             $(".mm-compose-admin-bar a").leanModal({
                 closeButton: ".compose-close",
                 top: '5%',

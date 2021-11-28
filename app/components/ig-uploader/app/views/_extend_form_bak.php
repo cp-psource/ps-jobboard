@@ -73,7 +73,7 @@ $f_id = uniqid();
             form.data('popover', pop.$tip.attr('id'));
             var container = pop.$tip;
             var cancel = container.find('.igu-close-uploader');
-            cancel.unbind('click').on('click', function () {
+            cancel.off('click').on('click', function () {
                 pop.hide();
             });
             //bind form data
@@ -129,7 +129,7 @@ $f_id = uniqid();
                     form.data('popover', pop.$tip.attr('id'));
                     var container = pop.$tip;
                     var cancel = container.find('.igu-close-uploader');
-                    cancel.unbind('click').on('click', function () {
+                    cancel.off('click').on('click', function () {
                         pop.hide();
                     });
                     //bind form data
@@ -168,7 +168,7 @@ $f_id = uniqid();
                     that.find('button').removeAttr('disabled');
                     if (data.status == 'success') {
                         //check case update or case insert
-                        if (that.find('#ig_uploader_model-id').size() > 0) {
+                        if (that.find('#ig_uploader_model-id').length > 0) {
                             var html = $(data.html);
                             $('#igu-media-file-' + data.id).html(html.html());
                             $('#' + that.data('popover')).popoverasync('destroy');

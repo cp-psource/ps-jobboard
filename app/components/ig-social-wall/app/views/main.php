@@ -125,7 +125,7 @@
                         if (instance.hasClass('add-social')) {
                             //check does this appear in the pool
                             var exist = $('.jbp-socials').find("[data-id='" + element.data('id') + "']");
-                            if (exist.size() > 0) {
+                            if (exist.length > 0) {
                                 exist.replaceWith(element);
                                 element.addClass('animated flash').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
                                     element.removeClass('animated flash');

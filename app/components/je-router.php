@@ -34,7 +34,7 @@ class JE_Router
             if (is_tax('jbp_category')) {
                 $term = get_term_by('slug', get_query_var('jbp_category'), 'jbp_category');
 
-                return __('Job Category: ', 'psjb') . ' ' . $term->name;
+                return __('Job Kategorie: ', 'psjb') . ' ' . $term->name;
             } elseif (is_singular('jbp_job') && in_the_loop() && !JE_Page_Factory::is_core_page(get_the_ID())) {
                 global $wp_query;
                 if ($wp_query->is_main_query()) {

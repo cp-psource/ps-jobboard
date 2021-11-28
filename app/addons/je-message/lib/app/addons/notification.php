@@ -83,7 +83,7 @@ if (!class_exists('MM_Push_Notification')) {
                                     success: function (data) {
                                         if (data != null && data.count != undefined) {
                                             $('.mm-admin-bar').find('span').text(data.count);
-                                            if ($('.unread-count').size() > 0) {
+                                            if ($('.unread-count').length > 0) {
                                                 $('.unread-count').attr('title', data.count + ' ' + $('.unread-count').data('text'));
                                             }
                                             jQuery.each(data.messages, function (i, v) {

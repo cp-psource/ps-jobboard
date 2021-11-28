@@ -18,7 +18,7 @@ jQuery(function ($) {
             var pop = that.data('plugin_webuiPopover');
             var container = pop.$target;
             var form = container.find('form').first();
-            if (form.size() > 0) {
+            if (form.length > 0) {
                 $('body').on('click', '.igu-close-uploader', function () {
                     pop.destroy();
                 });
@@ -44,7 +44,7 @@ jQuery(function ($) {
             var pop = that.data('plugin_webuiPopover');
             var container = pop.$target;
             var form = container.find('form').first();
-            if (form.size() > 0) {
+            if (form.length > 0) {
                 $('body').on('click', '.igu-close-uploader', function () {
                     pop.destroy();
                 });

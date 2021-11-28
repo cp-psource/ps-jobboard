@@ -89,7 +89,7 @@
                 )) ?>
             </div>
             <script type="text/javascript">
-                jQuery(window).load(function () {
+                jQuery(window).on("load", function () {
                     jQuery(document).ready(function ($) {
                         $('.meta_holder').mouseenter(function () {
                             $(this).find('.jbp_pro_meta').css('visibility', 'visible');

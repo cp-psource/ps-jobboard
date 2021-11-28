@@ -31,7 +31,7 @@ class JE_WYSIWYG
             <script type="text/javascript">
                 jQuery(document).ready(function ($) {
                     function load_editor() {
-                        if ($('.je_wysiwyg').size() > 0) {
+                        if ($('.je_wysiwyg').length > 0) {
                             $('.je_wysiwyg').sceditor({
                                 plugins: "bbcode",
                                 autoUpdate: true,
@@ -61,7 +61,7 @@ class JE_WYSIWYG
             <script type="text/javascript">
                 jQuery(document).ready(function ($) {
                     function load_editor() {
-                        if ($('.je_wysiwyg').size() > 0) {
+                        if ($('.je_wysiwyg').length > 0) {
                             var editors = $('.je_wysiwyg').sceditor({
                                 plugins: "xhtml",
                                 autoUpdate: true,
