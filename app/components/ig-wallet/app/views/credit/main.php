@@ -1,6 +1,6 @@
 <div class="wrap">
-    <h2><?php _e("Credit Plans", 'psjb') ?>
-        <a href="" class="add-new-h2"><?php _e("Add new", 'psjb') ?></a></h2>
+    <h2><?php _e("Guthabenpakete", 'psjb') ?>
+        <a href="" class="add-new-h2"><?php _e("Neues hinzufügen", 'psjb') ?></a></h2>
 
     <div class="ig-container">
         <?php if ($this->has_flash('plan_save')): ?>
@@ -48,7 +48,7 @@
                                             <form style="display: inline;" method="post">
                                                 <?php wp_nonce_field('je_delete_plan', 'je_delete_plan_nonce') ?>
                                                 <input type="hidden" name="id" value="<?php echo $row->product_id ?>">
-                                                <button onclick="return confirm('Are you sure?')" type="submit"
+                                                <button onclick="return confirm('Bist du sicher?')" type="submit"
                                                         class="btn btn-xs btn-danger">
                                                     <?php _e("Löschen", 'psjb') ?>
                                                 </button>
@@ -74,7 +74,7 @@
                         <?php $form = new IG_Active_Form($model);
                         $form->open(array("attributes" => array("class" => "form-horizontal"))); ?>
                         <div class="form-group <?php echo $model->has_error("title") ? "has-error" : null ?>">
-                            <?php $form->label("title", array("text" => "Title", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
+                            <?php $form->label("title", array("text" => "Titel", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
                             <div class="col-lg-10">
                                 <?php $form->text("title", array("attributes" => array("class" => "form-control"))) ?>
                                 <span class="help-block m-b-none error-title"><?php $form->error("title") ?></span>
@@ -82,7 +82,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group <?php echo $model->has_error("description") ? "has-error" : null ?>">
-                            <?php $form->label("description", array("text" => "Description", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
+                            <?php $form->label("description", array("text" => "Beschreibung", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
                             <div class="col-lg-10">
                                 <?php $form->text_area("description", array("attributes" => array("class" => "form-control"))) ?>
                                 <span
@@ -91,7 +91,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group <?php echo $model->has_error("credits") ? "has-error" : null ?>">
-                            <?php $form->label("credits", array("text" => "Credits", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
+                            <?php $form->label("credits", array("text" => "Guthaben", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
                             <div class="col-lg-10">
                                 <?php $form->text("credits", array("attributes" => array("class" => "form-control"))) ?>
                                 <span class="help-block m-b-none error-credits"><?php $form->error("credits") ?></span>
@@ -99,7 +99,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group <?php echo $model->has_error("cost") ? "has-error" : null ?>">
-                            <?php $form->label("cost", array("text" => "Cost", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
+                            <?php $form->label("cost", array("text" => "Preis", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
                             <div class="col-lg-10">
                                 <div class="input-group">
                                     <span
@@ -111,7 +111,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="form-group <?php echo $model->has_error("sale_price") ? "has-error" : null ?>">
-                            <?php $form->label("sale_price", array("text" => "Sale price", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
+                            <?php $form->label("sale_price", array("text" => "Angebotspreis", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
                             <div class="col-lg-10">
                                 <div class="input-group">
                                     <span
@@ -135,7 +135,7 @@
                                         'attributes' => array(
                                             'value' => 1
                                         )
-                                    )) ?> <?php _e("Füge Guthabeninformationen nach Produktname und Preis hinzu, z. B.: <em>10$ für 20 Guthaben</em>") ?>
+                                    )) ?> <?php _e("Füge Guthabeninformationen nach Produktname und Preis hinzu, z. B.: <em>10€ für 20 Guthaben</em>") ?>
                                 </label>
                             </div>
                             <div class="clearfix"></div>
@@ -144,9 +144,9 @@
                             <div class="col-lg-12 text-right">
                                 <button type="submit" name="je_credit_submit"
                                         value="<?php echo wp_create_nonce('ig_wallet_save_plan') ?>"
-                                        class="btn btn-primary"><?php _e("Save", 'psjb') ?></button>
+                                        class="btn btn-primary"><?php _e("Speichern", 'psjb') ?></button>
                                 <a href="<?php echo admin_url('admin.php?page=ig-credit-plans') ?>"
-                                   class="btn btn-default"><?php _e("Reset form", 'psjb') ?></a>
+                                   class="btn btn-default"><?php _e("Formular zurücksetzen", 'psjb') ?></a>
                             </div>
                             <div class="clearfix"></div>
                         </div>

@@ -43,7 +43,7 @@
                 <?php $form->number("free_from", array("attributes" => array("class" => "form-control", "min" => 0))) ?>
                 <span class="help-block m-b-none error-free_from"><?php $form->error("free_from") ?></span>
                 <span class="help-block">
-                    <?php _e("Wie viele Profile muss der Benutzer bezahlen, bevor er sie kostenlos einreichen kann?t", 'psjb') ?>
+                    <?php _e("Wie viele Profile muss der Benutzer bezahlen, bevor er sie kostenlos einreichen kann?", 'psjb') ?>
                 </span>
             </div>
             <div class="clearfix"></div>
