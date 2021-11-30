@@ -285,7 +285,7 @@ class JE_Settings_Model extends IG_Option_Model
 			"YER"     => array( "Yemen, Rials", "fdfc" ),
 			"ZWD"     => array( "Zimbabwe, Zimbabwe Dollars", "5a, 24" ),
 			"POINTS"  => array( "Points (for point based stores)", "50, 6f, 69, 6e, 74, 73" ),
-			"CREDITS" => array( "Credits (for credit based stores)", "43, 72, 65, 64, 69, 74, 73" )
+			"Guthaben" => array( "Guthaben (for credit based stores)", "43, 72, 65, 64, 69, 74, 73" )
 		);
 
 		return apply_filters( 'je_currencies', $currences );

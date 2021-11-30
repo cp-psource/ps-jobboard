@@ -39,13 +39,13 @@ class Job_Saved_Controller extends IG_Request
         if (!User_Credit_Model::check_balance($settings->credit_use, get_current_user_id())) {
             ?>
             <div class="alert alert-warning">
-                <?php echo sprintf(__('Dein Guthaben reicht nicht aus, um einen neuen Job zu veröffentlichen. Du benötigst %s Credits. Besuche zum Kauf <a href="%s">hier</a>', 'psjb'), $settings->credit_use, get_permalink(ig_wallet()->settings()->plans_page)) ?>
+                <?php echo sprintf(__('Dein Guthaben reicht nicht aus, um einen neuen Job zu veröffentlichen. Du benötigst %s Guthaben. Besuche zum Kauf <a href="%s">hier</a>', 'psjb'), $settings->credit_use, get_permalink(ig_wallet()->settings()->plans_page)) ?>
             </div>
         <?php
         } else {
             ?>
             <div class="alert alert-info">
-                <?php echo sprintf(__('Das Posten eines neuen Jobs kostet %s Credits', 'psjb'), $settings->credit_use); ?>
+                <?php echo sprintf(__('Das Posten eines neuen Jobs kostet %s Guthaben', 'psjb'), $settings->credit_use); ?>
             </div>
         <?php
         }
@@ -97,7 +97,7 @@ class Job_Saved_Controller extends IG_Request
         } else {
             //remove points
             User_Credit_Model::update_balance(0 - $settings->credit_use, get_current_user_id(), '',
-                sprintf(__("Du hast %s Credits für die veröffentlichung des Jobs %s verwendet", 'psjb'), $settings->credit_use, $model->job_title), __("Spent Credits", 'psjb'));
+                sprintf(__("Du hast %s Guthaben für die veröffentlichung des Jobs %s verwendet", 'psjb'), $settings->credit_use, $model->job_title), __("Sende Guthaben", 'psjb'));
             update_post_meta($model->id, 'je_job_paid', 1);
         }
     }

@@ -18,9 +18,9 @@
                             <thead>
                             <tr>
                                 <th><?php _e("Name", 'psjb') ?></th>
-                                <th><?php _e("Credits", 'psjb') ?></th>
-                                <th><?php _e("Cost", 'psjb') ?></th>
-                                <th><?php _e("Sale price", 'psjb') ?></th>
+                                <th><?php _e("Guthaben", 'psjb') ?></th>
+                                <th><?php _e("Kosten", 'psjb') ?></th>
+                                <th><?php _e("Verkaufspreis", 'psjb') ?></th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -43,14 +43,14 @@
                                         <td>
                                             <a class="btn btn-primary btn-xs"
                                                href="<?php echo admin_url(add_query_arg('id', $row->product_id, 'admin.php?page=ig-credit-plans')) ?>">
-                                                <?php _e("Edit") ?></a>
+                                                <?php _e("Bearbeiten") ?></a>
 
                                             <form style="display: inline;" method="post">
                                                 <?php wp_nonce_field('je_delete_plan', 'je_delete_plan_nonce') ?>
                                                 <input type="hidden" name="id" value="<?php echo $row->product_id ?>">
                                                 <button onclick="return confirm('Are you sure?')" type="submit"
                                                         class="btn btn-xs btn-danger">
-                                                    <?php _e("Delete", 'psjb') ?>
+                                                    <?php _e("Löschen", 'psjb') ?>
                                                 </button>
                                             </form>
                                         </td>
@@ -59,7 +59,7 @@
                             <?php else: ?>
                                 <tr>
                                     <td colspan="4">
-                                        <?php _e("No data available", 'psjb') ?>
+                                        <?php _e("Keine Daten verfügbar", 'psjb') ?>
                                     </td>
                                 </tr>
                             <?php endif; ?>
@@ -135,7 +135,7 @@
                                         'attributes' => array(
                                             'value' => 1
                                         )
-                                    )) ?> <?php _e("Append credit info after product name & price, eg: <em>10$ for 20 credits</em>") ?>
+                                    )) ?> <?php _e("Füge Guthabeninformationen nach Produktname und Preis hinzu, z. B.: <em>10$ für 20 Guthaben</em>") ?>
                                 </label>
                             </div>
                             <div class="clearfix"></div>

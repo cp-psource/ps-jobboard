@@ -45,7 +45,7 @@ class Credit_Plan_Controller extends IG_Request {
 	function addition_cart_name_info( $name, $product_id ) {
 		$plan = Credit_Plan_Model::find( $product_id );
 		if ( is_object( $plan ) && $plan->append_credits_info == 1 ) {
-			$name .= ' (' . $plan->credits . ' ' . __( "Credits", 'psjb' ) . ')';
+			$name .= ' (' . $plan->credits . ' ' . __( "Guthaben", 'psjb' ) . ')';
 		}
 
 		return $name;
@@ -61,7 +61,7 @@ class Credit_Plan_Controller extends IG_Request {
 			$classname = 'mp_current_price';
 			$element   = $xpath->query( "//*[@class='" . $classname . "']" );
 			if ( $element->length > 0 ) {
-				$element->item( 0 )->nodeValue = $element->item( 0 )->nodeValue . ' ' . sprintf( __( "für %s Credit(s)", 'psjb' ), $plan->credits );
+				$element->item( 0 )->nodeValue = $element->item( 0 )->nodeValue . ' ' . sprintf( __( "für %s Guthaben", 'psjb' ), $plan->credits );
 			}
 			$price_html = $dom->saveHTMLExact();
 		}
@@ -87,10 +87,10 @@ class Credit_Plan_Controller extends IG_Request {
 			$model->import( je()->post( 'Sending_Credit_Model' ) );
 			if ( $model->validate() ) {
 				//update users credit
-				$log = sprintf( __( "Du hast %s Credits erhalten mit der Begründung: \"%s\"", 'psjb' ), $model->amount, $model->reason );
-				User_Credit_Model::update_balance( $model->amount, $model->user_id, '', $log, __( 'Gekaufte Credits', 'psjb' ) );
+				$log = sprintf( __( "Du hast %s Guthaben erhalten mit der Begründung: \"%s\"", 'psjb' ), $model->amount, $model->reason );
+				User_Credit_Model::update_balance( $model->amount, $model->user_id, '', $log, __( 'Gekaufte Guthaben', 'psjb' ) );
 				$user = get_userdata( $model->user_id );
-				$this->set_flash( 'wallet_settings_saved', sprintf( __( "Du hast <strong>%s Credits</strong> erfolgreich an den Benutzer <strong>%s</strong> gesendet.", 'psjb' ), $model->amount, $user->user_login ) );
+				$this->set_flash( 'wallet_settings_saved', sprintf( __( "Du hast <strong>%s Guthaben</strong> erfolgreich an den Benutzer <strong>%s</strong> gesendet.", 'psjb' ), $model->amount, $user->user_login ) );
 				$this->refresh();
 			} else {
 				je()->global['je_credit_send_model'] = $model;
@@ -119,7 +119,7 @@ class Credit_Plan_Controller extends IG_Request {
 			switch ( $_POST['type'] ) {
 				case 'wallet_page':
 					$new_id = wp_insert_post( apply_filters( 'je_create_my_wallet_page', array(
-						'post_title'     => __( "Meine Jobboardcredits", 'psjb' ),
+						'post_title'     => __( "Meine Jobboardguthaben", 'psjb' ),
 						'post_content'   => "$shortcodes [jbp-my-wallet]",
 						'post_status'    => 'publish',
 						'post_type'      => 'page',
@@ -134,7 +134,7 @@ class Credit_Plan_Controller extends IG_Request {
 					break;
 				case 'plans_page':
 					$new_id = wp_insert_post( apply_filters( 'je_create_credit_plan_page', array(
-						'post_title'     => __( "Credit Pakete", 'psjb' ),
+						'post_title'     => __( "Guthaben Pakete", 'psjb' ),
 						'post_content'   => "[mp_list_products category=\"je-credits\"]",
 						'post_status'    => 'publish',
 						'post_type'      => 'page',
@@ -161,7 +161,7 @@ class Credit_Plan_Controller extends IG_Request {
 
 	function btn_shortcode( $atts ) {
 		extract( shortcode_atts( array(
-			'text'     => __( 'Meine Jobboardcredits', 'psjb' ),
+			'text'     => __( 'Meine Jobboardguthaben', 'psjb' ),
 			'view'     => 'both', //loggedin, loggedout, both
 			'class'    => je()->settings()->theme,
 			'template' => '',
@@ -202,10 +202,10 @@ class Credit_Plan_Controller extends IG_Request {
 		foreach ( $cart as $id => $item ) {
 			$model = Credit_Plan_Model::find( $id );
 			if ( is_object( $model ) ) {
-				$log = sprintf( __( "Du hast %s Credits für %s bis %s gekauft", 'psjb' ),
+				$log = sprintf( __( "Du hast %s Guthaben für %s bis %s gekauft", 'psjb' ),
 					$model->credits, JobsExperts_Helper::format_currency( '', $item[0]['price'] ), $order->mp_payment_info['gateway_public_name'] );
 
-				User_Credit_Model::update_balance( $model->credits, $order->post_author, $item[0]['price'], $log, __( 'Gekaufte Credits', 'psjb' ) );
+				User_Credit_Model::update_balance( $model->credits, $order->post_author, $item[0]['price'], $log, __( 'Gekaufte Guthaben', 'psjb' ) );
 			}
 		}
 	}
@@ -216,10 +216,10 @@ class Credit_Plan_Controller extends IG_Request {
 			$model = Credit_Plan_Model::find( $id );
 			if ( is_object( $model ) ) {
 				$product = new MP_Product( $id );
-				$log     = sprintf( __( "Du hast %s Credits für %s bis %s gekauft", 'psjb' ),
+				$log     = sprintf( __( "Du hast %s Guthaben für %s bis %s gekauft", 'psjb' ),
 					$model->credits, JobsExperts_Helper::format_currency( '', $product->get_price( 'lowest' ) ), $order->get_meta( 'mp_payment_info->gateway_public_name' ) );
 
-				User_Credit_Model::update_balance( $model->credits, $order->post_author, $product->get_price( 'lowest' ), $log, __( 'Gekaufte Credits', 'psjb' ) );
+				User_Credit_Model::update_balance( $model->credits, $order->post_author, $product->get_price( 'lowest' ), $log, __( 'Gekaufte Guthaben', 'psjb' ) );
 			}
 		}
 	}

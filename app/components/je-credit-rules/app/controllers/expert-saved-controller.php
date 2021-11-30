@@ -27,7 +27,7 @@ class Expert_Saved_Controller extends IG_Request
 
                 } else {
                     User_Credit_Model::update_balance(0 - $settings->credit_use, get_current_user_id(), '',
-                        sprintf(__("Du hast %s Credits zum Posten des Profils %s verwendet", 'psjb'), $settings->credit_use, $model->name));
+                        sprintf(__("Du hast %s Guthaben zum Posten des Profils %s verwendet", 'psjb'), $settings->credit_use, $model->name));
                     update_post_meta($model->id, 'je_expert_paid', 1);
                 }
             }
@@ -59,7 +59,7 @@ class Expert_Saved_Controller extends IG_Request
         if (!User_Credit_Model::check_balance($settings->credit_use, get_current_user_id())) {
             ?>
             <div class="alert alert-warning">
-                <?php echo sprintf(__('Dein Guthaben reicht nicht aus, um ein neues Profil zu erstellen (erfordert %s Credits). Klicke auf den folgenden <a href="%s">Link</a>, um Dein Guthaben aufzuladen.', 'psjb'), $settings->credit_use, get_permalink(ig_wallet()->settings()->plans_page)) ?>
+                <?php echo sprintf(__('Dein Guthaben reicht nicht aus, um ein neues Profil zu erstellen (erfordert %s Guthaben). Klicke auf den folgenden <a href="%s">Link</a>, um Dein Guthaben aufzuladen.', 'psjb'), $settings->credit_use, get_permalink(ig_wallet()->settings()->plans_page)) ?>
             </div>
         <?php
         }
@@ -109,7 +109,7 @@ class Expert_Saved_Controller extends IG_Request
         } else {
             //remove points
             User_Credit_Model::update_balance(0 - $settings->credit_use, get_current_user_id(), '',
-                sprintf(__("Du hast %s Guthaben zum Posten des Profils %s verwendet", 'psjb'), $settings->credit_use, $model->name), __('Spent Credits', 'psjb'));
+                sprintf(__("Du hast %s Guthaben zum Posten des Profils %s verwendet", 'psjb'), $settings->credit_use, $model->name), __('Sende Guthaben', 'psjb'));
             update_post_meta($model->id, 'je_expert_paid', 1);
         }
     }

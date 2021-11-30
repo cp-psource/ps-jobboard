@@ -3,7 +3,7 @@
         <strong><?php _e("Expertenprofil gespeichert", 'psjb') ?></strong>
     </div>
     <div class="panel-body">
-        <p><?php _e("Credits für die Erstellung eines neuen Expertenprofils", 'psjb') ?></p>
+        <p><?php _e("Guthaben für die Erstellung eines neuen Expertenprofils", 'psjb') ?></p>
 
         <?php $form = new IG_Active_Form($model);
         $form->open(array("attributes" => array("class" => "form-horizontal", "id" => "expert-saved-setting"))); ?>
@@ -32,7 +32,7 @@
                 ))) ?>
                 <span class="help-block m-b-none error-credit_use"><?php $form->error("credit_use") ?></span>
                 <span class="help-block">
-                    <?php _e("Wie viele Credits kostet es pro Expertenprofil?", 'psjb') ?>
+                    <?php _e("Wie viel Guthaben kostet es pro Expertenprofil?", 'psjb') ?>
                 </span>
             </div>
             <div class="clearfix"></div>

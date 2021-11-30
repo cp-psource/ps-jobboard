@@ -6,16 +6,16 @@
         </ul>
         <div class="tab-content" style="padding: 0 10px">
             <div id="my-wallets">
-                <h3><?php _e("Credits Balance", 'psjb') ?></h3>
+                <h3><?php _e("Guthabensaldo", 'psjb') ?></h3>
 
-                <p><?php _e("Credits", 'psjb') ?> <span class="label label-info">
+                <p><?php _e("Guthaben", 'psjb') ?> <span class="label label-info">
                     <?php echo User_Credit_Model::get_balance(get_current_user_id()) ?>
                 </span>
                 </p>
 
                 <p>
                     <a class="btn btn-info" href="<?php echo get_permalink(ig_wallet()->settings()->plans_page) ?>">
-                        <?php _e("Purchase Credits", 'psjb') ?>
+                        <?php _e("Guthaben Kaufen", 'psjb') ?>
                     </a>
                 </p>
             </div>
@@ -27,7 +27,7 @@
                 }
                 $cats = array_unique(array_filter($cats));
                 if (!empty($cats)) {
-                    $cats = array_merge(array(__("All", 'psjb')), $cats);
+                    $cats = array_merge(array(__("Alle", 'psjb')), $cats);
                 }
                 ?>
                 <div class="log-cats text-right">
@@ -43,7 +43,7 @@
                 <table class="table" id="purchase-log-table">
                     <thead>
                     <tr>
-                        <th><?php _e("Date", 'psjb') ?></th>
+                        <th><?php _e("Datum", 'psjb') ?></th>
                         <th><?php _e("Detail", 'psjb') ?></th>
                     </tr>
                     </thead>
@@ -61,7 +61,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="4"><?php _e('No data available', 'psjb') ?></td>
+                            <td colspan="4"><?php _e('Keine Daten verfügbar', 'psjb') ?></td>
                         </tr>
                     <?php endif; ?>
                     </tbody>

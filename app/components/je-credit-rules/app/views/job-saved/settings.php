@@ -3,7 +3,7 @@
         <strong><?php _e("Job gespeichert", 'psjb') ?></strong>
     </div>
     <div class="panel-body">
-        <p><?php _e("Credits zum Erstellen eines neuen Jobs", 'psjb') ?></p>
+        <p><?php _e("Guthaben zum Erstellen eines neuen Jobs", 'psjb') ?></p>
 
         <?php $form = new IG_Active_Form($model);
         $form->open(array("attributes" => array("class" => "form-horizontal", "id" => "job-saved-setting"))); ?>
@@ -24,7 +24,7 @@
             <div class="clearfix"></div>
         </div>
         <div class="form-group <?php echo $model->has_error("credit_use") ? "has-error" : null ?>">
-            <?php $form->label("credit_use", array("text" => __("Creditskosten", 'psjb'), "attributes" => array("class" => "col-lg-2 control-label"))) ?>
+            <?php $form->label("credit_use", array("text" => __("Guthabenkosten", 'psjb'), "attributes" => array("class" => "col-lg-2 control-label"))) ?>
             <div class="col-lg-5">
                 <?php $form->number("credit_use", array("attributes" => array(
                     "class" => "form-control",
@@ -32,7 +32,7 @@
                 ))) ?>
                 <span class="help-block m-b-none error-credit_use"><?php $form->error("credit_use") ?></span>
                 <span class="help-block">
-                    <?php _e("Wie viele Credits kostet jeder Job?", 'psjb') ?>
+                    <?php _e("Wie viel Guthaben kostet jeder Job?", 'psjb') ?>
                 </span>
             </div>
             <div class="clearfix"></div>

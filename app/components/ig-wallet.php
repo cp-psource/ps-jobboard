@@ -37,9 +37,9 @@ if (!class_exists('IG_Wallet')) {
 
         function admin_menu()
         {
-            add_menu_page(__('Credit Plans', $this->domain), __('Credit Plans', $this->domain), 'manage_options', 'ig-credit-plans', array($this->controller, 'main'), 'dashicons-products', 35);
-            add_submenu_page('ig-credit-plans', __("Rules", $this->domain), __("Rules", $this->domain), 'manage_options', 'ig-credit-rules', array($this->controller, 'rules'));
-            add_submenu_page('ig-credit-plans', __("Settings", $this->domain), __("Settings", $this->domain), 'manage_options', 'ig-credits-setting', array($this->controller, 'settings'));
+            add_menu_page(__('Guthabenpakete', $this->domain), __('Guthabenpakete', $this->domain), 'manage_options', 'ig-credit plans', array($this->controller, 'main'), 'dashicons-products', 35);
+            add_submenu_page('ig-credit plans', __("Regeln", $this->domain), __("Regeln", $this->domain), 'manage_options', 'ig-credit-rules', array($this->controller, 'rules'));
+            add_submenu_page('ig-credit plans', __("Einstellungen", $this->domain), __("Einstellungen", $this->domain), 'manage_options', 'ig-credits-setting', array($this->controller, 'settings'));
             //add_submenu_page('ig-credit-plans', __("Getting Start", $this->domain), __("Getting Start", $this->domain), 'manage_options', 'ig-credit-getting-start', array($this->controller, 'getting_start'));
         }
 
@@ -47,12 +47,12 @@ if (!class_exists('IG_Wallet')) {
         {
             global $submenu;
 
-            if (isset($submenu['ig-credit-plans'])) {
-                $nav = $submenu['ig-credit-plans'];
+            if (isset($submenu['ig-credit plans'])) {
+                $nav = $submenu['ig-credit plans'];
                 //get the last
                 $start = array_pop($nav);
                 $nav = array_merge(array($start), $nav);
-                $submenu['ig-credit-plans'] = $nav;
+                $submenu['ig-credit plan'] = $nav;
             }
 
             return $menu_order;
@@ -61,22 +61,22 @@ if (!class_exists('IG_Wallet')) {
         function custom_post_type()
         {
             $labels = array(
-                'name' => __('Credit Plans', $this->domain),
-                'singular_name' => __('Credit Plan', $this->domain),
-                'menu_name' => __('Credit Plans', $this->domain),
-                'parent_item_colon' => __('Parent Item:', $this->domain),
-                'all_items' => __('All Items', $this->domain),
-                'view_item' => __('View Item', $this->domain),
-                'add_new_item' => __('Add New Item', $this->domain),
-                'add_new' => __('Add New', $this->domain),
-                'edit_item' => __('Edit Item', $this->domain),
-                'update_item' => __('Update Item', $this->domain),
-                'search_items' => __('Search Item', $this->domain),
-                'not_found' => __('Not found', $this->domain),
-                'not_found_in_trash' => __('Not found in Trash', $this->domain),
+                'name' => __('Guthabenpaket', $this->domain),
+                'singular_name' => __('Guthabenpaket', $this->domain),
+                'menu_name' => __('Guthabenpakete', $this->domain),
+                'parent_item_colon' => __('Eltern Artikel:', $this->domain),
+                'all_items' => __('Alle Artikel', $this->domain),
+                'view_item' => __('Artikel anzeigen', $this->domain),
+                'add_new_item' => __('Neuen Artikel hinzufügen', $this->domain),
+                'add_new' => __('Neue hinzufügen', $this->domain),
+                'edit_item' => __('Artikel bearbeiten', $this->domain),
+                'update_item' => __('Artikel aktualisieren', $this->domain),
+                'search_items' => __('Artikel suchen', $this->domain),
+                'not_found' => __('Nicht gefunden', $this->domain),
+                'not_found_in_trash' => __('Nicht im Papierkorb gefunden', $this->domain),
             );
             $args = array(
-                'label' => __('ig_credit_plan', $this->domain),
+                'label' => __('ig_Guthabenpaket', $this->domain),
                 'labels' => $labels,
                 'supports' => array(
                     'title', //'custom-fields'
