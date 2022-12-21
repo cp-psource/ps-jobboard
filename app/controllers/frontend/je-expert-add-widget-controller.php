@@ -13,7 +13,7 @@ class JE_Expert_Add_Widget_Controller extends WP_Widget
             'classname' => 'widget_add_expert',
             'description' => __("Biete Deine Fähigkeiten an", 'psjb')
         );
-        parent::__construct('add-expert', __('Jobs und Fähigkeiten anbieten', 'psjb'), $widget_ops);
+        parent::__construct('add-expert', __('Jobboard: Fähigkeiten anbieten', 'psjb'), $widget_ops);
         $this->alt_option_name = 'widget_add_expert';
     }
 

@@ -31,6 +31,6 @@
 	</p>
 	<p>
 		<strong class="privacy-policy-tutorial"><?php esc_html_e( 'Suggested text: ', 'psjb' ); ?></strong>
-		<?php esc_html_e( 'Informationen, die an PS Jobbörse gesendet werden, können öffentlich angezeigt werden.', 'psjb' ); ?>
+		<?php esc_html_e( 'Informationen, die an PS Jobboard gesendet werden, können öffentlich angezeigt werden.', 'psjb' ); ?>
 	</p>
 </div>

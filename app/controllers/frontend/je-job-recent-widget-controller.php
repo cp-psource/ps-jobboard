@@ -16,7 +16,7 @@ class JE_Job_Recent_Widget_Controller extends WP_Widget
             'classname' => 'widget_recent_job_entries',
             'description' => __("Die neuesten Jobangebote", 'psjb')
         );
-        parent::__construct('recent-jobs', __('Jobbörse Die neuesten Jobangebote', 'psjb'), $widget_ops);
+        parent::__construct('recent-jobs', __('Jobbo Die neuesten Jobangebote', 'psjb'), $widget_ops);
         $this->alt_option_name = 'widget_recent_job_entries';
     }
 

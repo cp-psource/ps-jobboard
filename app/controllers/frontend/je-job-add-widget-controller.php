@@ -12,7 +12,7 @@ class JE_Job_Add_Widget_Controller extends WP_Widget
             'classname' => 'widget_add_job',
             'description' => __("Veröffentliche neuen Job", 'psjb')
         );
-        parent::__construct('add-job', __('Jobbörse Veröffentliche neuen Job', 'psjb'), $widget_ops);
+        parent::__construct('add-job', __('Jobboard: Veröffentliche neuen Job', 'psjb'), $widget_ops);
         $this->alt_option_name = 'widget_add_job';
     }
 
@@ -48,7 +48,7 @@ class JE_Job_Add_Widget_Controller extends WP_Widget
 
                                         <div class="clearfix"></div>
                                         <button type="submit"
-                                                class="btn btn-primary btn-sm pull-right"><?php _e('Veröffentliche den Job', 'psjb') ?></button>
+                                                class="btn btn-primary btn-sm pull-right"><?php _e('Schreibe den Job aus', 'psjb') ?></button>
                                         <div class="clearfix"></div>
                                     </div>
                                 </form>

@@ -27,12 +27,12 @@
                                                     <h4>
                                                         <a href="<?php
                                                         echo get_permalink($job->id) ?>">
-                                                            <?php echo wp_trim_words($job->job_title, 4) ?>
+                                                            <?php echo wp_trim_words($job->job_title, 8) ?>
                                                         </a>
                                                     </h4>
     
                                                     <div class="ellipsis">
-                                                        <?php echo wp_trim_words($job->description, 10) ?>
+                                                        <?php echo wp_trim_words($job->description, 35) ?>
                                                     </div>
                                                 </div>
                                                 <div style="clear: both"></div>

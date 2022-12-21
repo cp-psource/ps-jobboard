@@ -56,6 +56,7 @@ Halte Dich mit unserem [Newsletter](https://n3rds.work/webmasterservice-n3rdswor
 * Textanpassungen
 * Select2 Update
 * Deprecated jQuery Updates
+* Startseite Auszugslänge und Titellänge korrigiert
 
 = 1.2.2 = DerN3rd =
 

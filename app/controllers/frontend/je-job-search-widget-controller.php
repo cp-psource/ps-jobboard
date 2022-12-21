@@ -15,7 +15,7 @@ class JE_Job_Search_Widget_Controller extends WP_Widget
             'classname' => 'widget_search_job',
             'description' => __("Jobs suchen Widget", 'psjb')
         );
-        parent::__construct('search-job', __('Jobboard Suche Jobs', 'psjb'), $widget_ops);
+        parent::__construct('search-job', __('Jobboard: Suche Jobs', 'psjb'), $widget_ops);
         $this->alt_option_name = 'widget_add_job';
     }
 
