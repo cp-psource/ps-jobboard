@@ -3,7 +3,7 @@
  * Plugin Name: PS-Jobboard
  * Plugin URI: https://n3rds.work/piestingtal_source/ps-jobboard-plugin/
  * Description: Bringe Menschen mit Projekten und Branchenfachleute zusammen - es ist mehr als eine durchschnittliche WordPress-Jobbörse.
- * Version: 1.2.2
+ * Version: 1.2.3
  * Author:WMS N@W
  * Author URI: https://n3rds.work
  * Text Domain: psjb
@@ -72,7 +72,7 @@ class Jobs_Experts {
 	public $domain;
 	public $prefix;
 
-	public $version = "1.2.2";
+	public $version = "1.2.3";
 	public $db_version = "1.0";
 
 	public $global = array();
@@ -277,7 +277,7 @@ class Jobs_Experts {
 		return ( $NewArray );
 	}
 
-	function compress_assets( $css = array(), $js = array(), $write_path ) {
+	function compress_assets( $write_path, $css = array(), $js = array() ) {
 		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) {
 			return;
 		}

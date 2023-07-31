@@ -1,16 +1,16 @@
 <?php
 /*
 Plugin Name: Private Messaging
-Plugin URI: https://premium.wpmudev.org/project/private-messaging
+Plugin URI: https://n3rds.work
 Description: Private user-to-user communication for placing bids, sharing project specs and hidden internal communication. Complete with front end integration, guarded contact information and protected file sharing.
-Author: WPMU DEV
+Author: WMS N@W
 Version: 1.0.1.2
-Author URI: http://premium.wpmudev.org
-Text Domain: private_messaging
+Author URI: https://n3rds.work
+Text Domain: psjb
 */
 
 /*
-Copyright 2007-2014 Incsub (http://incsub.com)
+Copyright 2014-2023 WMS N@W (https://n3rds.work)
 Author – DerN3rd (Incsub)
 
 This program is free software; you can redistribute it and/or modify
@@ -158,7 +158,7 @@ if (!class_exists('MMessaging')) {
             return false;
         }
 
-        function compress_assets($css = array(), $js = array(), $write_path)
+        function compress_assets( $write_path, $css = array(), $js = array() )
         {
             if (defined('DOING_AJAX') && DOING_AJAX)
                 return;

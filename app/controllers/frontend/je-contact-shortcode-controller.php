@@ -130,7 +130,7 @@ class JE_Contact_Shortcode_Controller extends IG_Request
         }
     }
 
-    function email_replace($content = '', $post, $user_name, $data)
+    function email_replace( $user_name, $data, $post, $content = '' )
     {
         $result =
             str_replace('SITE_NAME', get_bloginfo('name'),
