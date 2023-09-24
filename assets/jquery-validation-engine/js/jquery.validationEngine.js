@@ -1754,19 +1754,21 @@
 			return $(match);
 		},
 		/**
-		  * Returns the escapade classname
-		  *
-		  * @param {selector}
-		  *            className
-		  */
-		  _escapeExpression: function (selector) {
-			  return selector.replace(/([#;&,\.\+\*\~':"\!\^$\[\]\(\)=>\|])/g, "\\$1");
-		  },
+		* Funktion zur Escapierung von Zeichenketten
+		*
+		* @param {string} selector - Die zu escapende Zeichenkette
+		* @returns {string} - Die escapte Zeichenkette
+		*/
+		_escapeExpression: function (selector) {
+			// Die reguläre Ausdrucksentsprechung erfasst verschiedene Meta-Zeichen
+			// und escapet sie, indem ein Backslash davor gesetzt wird.
+			return selector.replace(/([#;&,\.\+\*\~':"\!\^$\[\]\(\)=>\|])/g, "\\$1");
+		},
 		/**
-		 * returns true if we are in a RTLed document
-		 *
-		 * @param {jqObject} field
-		 */
+		* returns true if we are in a RTLed document
+		*
+		* @param {jqObject} field
+		*/
 		isRTL: function(field)
 		{
 			var $document = $(document);
