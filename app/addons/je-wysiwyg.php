@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Name: Advanced textarea
- * Description: Use WYSIWYG for Jobs/Experts detail field
- * Author: WPMU DEV
+ * Name: Erweiterter Texteditor
+ * Description: Verwende WYSIWYG für das Detailfeld „Jobs/Experten“.
+ * Author: WMS N@W
  */
 class JE_WYSIWYG
 {
