@@ -51,7 +51,11 @@ Halte Dich mit unserem [Newsletter](https://n3rds.work/webmasterservice-n3rdswor
 
 == ChangeLog ==
 
-= 1.2.3 = DerN3rd =
+= 1.2.4 =
+
+* Fix: Incomplete string escaping or encoding
+
+= 1.2.3 =
 
 * Textanpassungen
 * Select2 Update
@@ -59,13 +63,13 @@ Halte Dich mit unserem [Newsletter](https://n3rds.work/webmasterservice-n3rdswor
 * Startseite Auszugslänge und Titellänge korrigiert
 * PHP Deprecated:  Required parameter
 
-= 1.2.2 = DerN3rd =
+= 1.2.2 =
 
 * +Psource Updater v.1.1
 * Textanpassungen
 * CSS Styles angepasst
 
-= 1.2.1 = DerN3rd =
+= 1.2.1 =
 
 * Overhauled von WMS N@W
 * Release WMS N@W Netzwerksuche
