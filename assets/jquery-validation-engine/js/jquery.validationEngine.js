@@ -1932,14 +1932,20 @@
 			return className.replace(/:/g, "_").replace(/\./g, "_");
 		},
 		/**
-		 * Escape special characters for jQuery selector
-		 * http://totaldev.com/content/escaping-characters-get-valid-jquery-id
-		 * @param {String} selector
-		 */
+		* Escape special characters for jQuery selector
+		* http://totaldev.com/content/escaping-characters-get-valid-jquery-id
+		* @param {String} selector
+		*/
 		_jqSelector: function(str) {
-			return str.replace(/([;&,.+\-*~':"!^#$%@\[\]\(\)=>|])/g, '\\$1')
-			.replace(/\\/g, '\\\\'); // Escape the backslash itself
-		},
+			// Zuerst die Zeichen escapen, die in einem jQuery-Selektor besondere Bedeutung haben.
+			// Hier wird die Regel aus dem ursprünglichen Code beibehalten.
+			str = str.replace(/([;&,.+\-*~':"!^#$%@\[\]\(\)=>|])/g, '\\$1');
+			
+			// Jetzt das Escape-Zeichen selbst escapen, um doppelte Escapierung zu verhindern.
+			str = str.replace(/\\/g, '\\\\');
+			
+			return str;
+		}
 		/**
 		* Conditionally required field
 		*
