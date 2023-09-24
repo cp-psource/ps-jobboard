@@ -1762,7 +1762,7 @@
 		_escapeExpression: function (selector) {
 			// Die reguläre Ausdrucksentsprechung erfasst verschiedene Meta-Zeichen
 			// und escapet sie, indem ein Backslash davor gesetzt wird.
-			return selector.replace(/([#;&,\.\+\*\~':"\!\^$\[\]\(\)=>\|])/g, "\\$1");
+			return selector.replace(/([#;&,\.\+\*\~':"\!\^$\[\]\(\)=>\|\\])/g, "\\$1");
 		},
 		/**
 		* returns true if we are in a RTLed document
