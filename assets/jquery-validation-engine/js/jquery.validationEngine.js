@@ -10,7 +10,7 @@
  * Form validation engine allowing custom regex rules to be added.
  * Licensed under the MIT License
  */
- (function($) {
+(function($) {
 
 	"use strict";
 
@@ -730,7 +730,7 @@
 			var fieldType = field.prop("type");
 			var positionType=field.data("promptPosition") || options.promptPosition;
 
-			if ((fieldType == "radio" || fieldType == "checkbox") && form.find("input[name='" + fieldName + "']").length > 1) {
+			if ((fieldType == "radio" || fieldType == "checkbox") && form.find("input[name='" + fieldName + "']").size() > 1) {
 				if(positionType === 'inline') {
 					field = $(form.find("input[name='" + fieldName + "'][type!=hidden]:last"));
 				} else {
@@ -930,8 +930,8 @@
 					// old validation style
 					var form = field.closest("form, .validationEngineContainer");
 					var name = field.attr("name");
-					if (form.find("input[name='" + name + "']:checked").length == 0) {
-						if (form.find("input[name='" + name + "']:visible").length == 1)
+					if (form.find("input[name='" + name + "']:checked").size() == 0) {
+						if (form.find("input[name='" + name + "']:visible").size() == 1)
 							return options.allrules[rules[i]].alertTextCheckboxe;
 						else
 							return options.allrules[rules[i]].alertTextCheckboxMultiple;
@@ -1303,7 +1303,7 @@
 
 			var nbCheck = rules[i + 1];
 			var groupname = field.attr("name");
-			var groupSize = form.find("input[name='" + groupname + "']:checked").length;
+			var groupSize = form.find("input[name='" + groupname + "']:checked").size();
 			if (groupSize > nbCheck) {
 				options.showArrow = false;
 				if (options.allrules.maxCheckbox.alertText2)
@@ -1325,7 +1325,7 @@
 
 			var nbCheck = rules[i + 1];
 			var groupname = field.attr("name");
-			var groupSize = form.find("input[name='" + groupname + "']:checked").length;
+			var groupSize = form.find("input[name='" + groupname + "']:checked").size();
 			if (groupSize < nbCheck) {
 				options.showArrow = false;
 				return options.allrules.minCheckbox.alertText + " " + nbCheck + " " + options.allrules.minCheckbox.alertText2;
@@ -1754,21 +1754,19 @@
 			return $(match);
 		},
 		/**
-		* Funktion zur Escapierung von Zeichenketten
-		*
-		* @param {string} selector - Die zu escapende Zeichenkette
-		* @returns {string} - Die escapte Zeichenkette
-		*/
-		_escapeExpression: function (selector) {
-			// Die reguläre Ausdrucksentsprechung erfasst verschiedene Meta-Zeichen
-			// und escapet sie, indem ein Backslash davor gesetzt wird.
-			return selector.replace(/([#;&,\.\+\*\~':"\!\^$\[\]\(\)=>\|\\])/g, "\\$1");
-		},
+		  * Returns the escapade classname
+		  *
+		  * @param {selector}
+		  *            className
+		  */
+		  _escapeExpression: function (selector) {
+			  return selector.replace(/([#;&,\.\+\*\~':"\!\^$\[\]\(\)=>\|])/g, "\\$1");
+		  },
 		/**
-		* returns true if we are in a RTLed document
-		*
-		* @param {jqObject} field
-		*/
+		 * returns true if we are in a RTLed document
+		 *
+		 * @param {jqObject} field
+		 */
 		isRTL: function(field)
 		{
 			var $document = $(document);
@@ -1906,46 +1904,39 @@
 		*            options - the user options
 		* @return the user options (extended from the defaults)
 		*/
-		_saveOptions: function(form, options) {
+		 _saveOptions: function(form, options) {
 
-			// is there a language localisation ?
-			if ($.validationEngineLanguage)
-			var allRules = $.validationEngineLanguage.allRules;
-			else
-			$.error("jQuery.validationEngine rules are not loaded, plz add localization files to the page");
-			// --- Internals DO NOT TOUCH or OVERLOAD ---
-			// validation rules and i18
-			$.validationEngine.defaults.allrules = allRules;
+			 // is there a language localisation ?
+			 if ($.validationEngineLanguage)
+			 var allRules = $.validationEngineLanguage.allRules;
+			 else
+			 $.error("jQuery.validationEngine rules are not loaded, plz add localization files to the page");
+			 // --- Internals DO NOT TOUCH or OVERLOAD ---
+			 // validation rules and i18
+			 $.validationEngine.defaults.allrules = allRules;
 
-			var userOptions = $.extend(true,{},$.validationEngine.defaults,options);
+			 var userOptions = $.extend(true,{},$.validationEngine.defaults,options);
 
-			form.data('jqv', userOptions);
-			return userOptions;
-		},
+			 form.data('jqv', userOptions);
+			 return userOptions;
+		 },
 
+		 /**
+		 * Removes forbidden characters from class name
+		 * @param {String} className
+		 */
+		 _getClassName: function(className) {
+			 if(className)
+				 return className.replace(/:/g, "_").replace(/\./g, "_");
+					  },
 		/**
-		* Removes forbidden characters from class name
-		* @param {String} className
-		*/
-		_getClassName: function(className) {
-			if(className)
-			return className.replace(/:/g, "_").replace(/\./g, "_");
+		 * Escape special character for jQuery selector
+		 * http://totaldev.com/content/escaping-characters-get-valid-jquery-id
+		 * @param {String} selector
+		 */
+		 _jqSelector: function(str){
+			return str.replace(/([;&,\.\+\*\~':"\!\^#$%@\[\]\(\)=>\|])/g, '\\$1');
 		},
-		/**
-		* Escape special characters for jQuery selector
-		* http://totaldev.com/content/escaping-characters-get-valid-jquery-id
-		* @param {String} selector
-		*/
-		_jqSelector: function(str) {
-			// Zuerst die Zeichen escapen, die in einem jQuery-Selektor besondere Bedeutung haben.
-			// Hier wird die Regel aus dem ursprünglichen Code beibehalten.
-			str = str.replace(/([;&,.+\-*~':"!^#$%@\[\]\(\)=>|])/g, '\\$1');
-			
-			// Jetzt das Escape-Zeichen selbst escapen, um doppelte Escapierung zu verhindern.
-			str = str.replace(/\\/g, '\\\\');
-			
-			return str;
-		}
 		/**
 		* Conditionally required field
 		*
