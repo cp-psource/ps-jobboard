@@ -266,7 +266,7 @@
                                 emoticonsEnabled: false,
                                 resizeWidth:false,
                                 toolbar: "bold,italic,underline,strike|left,center,right,justify|font,size,color,removeformat|cut,copy,paste,pastetext|bulletlist,orderedlist,indent,outdent|link,unlink|date,time",
-                                style: '<?php echo je()->plugin_url . 'app/addons/je-wysiwyg/sceditor/minified/jquery.sceditor.default.min.css'?>'
+                                style: '<?php echo je()->plugin_url . 'app/addons/je-wysiwyg/sceditor/minified/themes/default.min.css'?>'
                             });
                             window.jetextarea = textarea.sceditor('instance');
                         }

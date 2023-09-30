@@ -108,7 +108,7 @@ if (!class_exists('MM_WYSIWYG')) {
                                     emoticonsEnabled: true,
                                     toolbar: "bold,italic,underline,strike|left,center,right,justify",
                                     emoticonsRoot: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/'?>',
-                                    style: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/minified/jquery.sceditor.default.min.css'?>',
+                                    style: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/minified/themes/default.min.css'?>',
                                     locale: '<?php echo $locale ?>'
                                 });
                             }
@@ -139,7 +139,7 @@ if (!class_exists('MM_WYSIWYG')) {
                                     emoticonsEnabled: true,
                                     toolbar: "bold,italic,underline,strike|left,center,right,justify|font,size,color,removeformat|cut,copy,paste,pastetext|bulletlist,orderedlist,indent,outdent|link,unlink|date,time|emoticon",
                                     emoticonsRoot: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/'?>',
-                                    style: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/minified/jquery.sceditor.default.min.css'?>',
+                                    style: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/minified/themes/default.min.css'?>',
                                     locale: '<?php echo $locale ?>'
                                 });
                             }

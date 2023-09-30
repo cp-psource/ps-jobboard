@@ -37,14 +37,14 @@ class JE_WYSIWYG
                                 autoUpdate: true,
                                 autoExpand: true,
                                 width: '98%',
-                                height: '80%',
+                                height: '300px', // Ändere die Höhe nach Bedarf
                                 resizeMinWidth: '50%',
                                 resizeMaxWidth: '100%',
                                 resizeMaxHeight: '100%',
                                 resizeMinHeight: '50%',
                                 emoticonsEnabled: true,
                                 toolbar: "bold,italic,underline,strike|left,center,right,justify|source",
-                                style: '<?php echo je()->plugin_url . 'app/addons/je-wysiwyg/sceditor/minified/jquery.sceditor.default.min.css'?>'
+                                style: '<?php echo je()->plugin_url . 'app/addons/je-wysiwyg/sceditor/minified/themes/default.min.css'?>'
                             });
                         }
                     }
@@ -66,6 +66,7 @@ class JE_WYSIWYG
                                 plugins: "xhtml",
                                 autoUpdate: true,
                                 width: '98%',
+                                height: '300px', // Ändere die Höhe nach Bedarf
                                 resizeMinWidth: '-1',
                                 resizeMaxWidth: '100%',
                                 resizeMaxHeight: '100%',
@@ -73,7 +74,7 @@ class JE_WYSIWYG
                                 readOnly: false,
                                 emoticonsEnabled: false,
                                 toolbar: "bold,italic,underline,strike|left,center,right,justify|font,size,color,removeformat|cut,copy,paste,pastetext|bulletlist,orderedlist,indent,outdent|link,unlink|date,time|source",
-                                style: '<?php echo je()->plugin_url . 'app/addons/je-wysiwyg/sceditor/minified/jquery.sceditor.default.min.css'?>'
+                                style: '<?php echo je()->plugin_url . 'app/addons/je-wysiwyg/sceditor/minified/themes/default.min.css'?>'
                             });
                         }
                     }
