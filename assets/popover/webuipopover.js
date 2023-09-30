@@ -1,5 +1,5 @@
 /*
- *  webui popover plugin  - v1.2.17
+ *  webui popover plugin  - v1.2.15
  *  A lightWeight popover plugin with jquery ,enchance the  popover plugin of bootstrap with some awesome new features. It works well with bootstrap ,but bootstrap is not necessary!
  *  https://github.com/sandywalker/webui-popover
  *
@@ -38,7 +38,7 @@
             },
             async: {
                 type: 'GET',
-                before: null, //function(that, xhr, settings){}
+                before: null, //function(that, xhr){}
                 success: null, //function(that, xhr){}
                 error: null //function(that, xhr, data){}
             },
@@ -170,10 +170,8 @@
 
                 if (this.getTrigger() !== 'manual') {
                     //init the event handlers
-                    if (isMobile) {
-                        this.$element.off('touchend', this.options.selector).on('touchend', this.options.selector, $.proxy(this.toggle, this));
-                    } else if (this.getTrigger() === 'click') {
-                        this.$element.off('click', this.options.selector).on('click', this.options.selector, $.proxy(this.toggle, this));
+                    if (this.getTrigger() === 'click' || isMobile) {
+                        this.$element.off('click touchend', this.options.selector).on('click touchend', this.options.selector, $.proxy(this.toggle, this));
                     } else if (this.getTrigger() === 'hover') {
                         this.$element
                             .off('mouseenter mouseleave click', this.options.selector)
@@ -271,7 +269,6 @@
                         that.$target.hide();
                         if (!that.getCache()) {
                             that.$target.remove();
-                            //that.getTriggerElement.removeAttr('data-target');
                         }
                     }, that.getHideDelay());
                 }
@@ -452,17 +449,6 @@
                     }
                     this.$target.addClass('webui-no-padding');
                 }
-
-                // add maxHeight and maxWidth support by limodou@gmail.com 2016/10/1
-                if (this.options.maxHeight) {
-                    $targetContent.css('maxHeight', this.options.maxHeight);
-                }
-
-                if (this.options.maxWidth) {
-                    $targetContent.css('maxWidth', this.options.maxWidth);
-                }
-                // end
-
                 targetWidth = $target[0].offsetWidth;
                 targetHeight = $target[0].offsetHeight;
 
@@ -703,9 +689,9 @@
                     url: this.getUrl(),
                     type: this.options.async.type,
                     cache: this.getCache(),
-                    beforeSend: function(xhr, settings) {
+                    beforeSend: function(xhr) {
                         if (that.options.async.before) {
-                            that.options.async.before(that, xhr, settings);
+                            that.options.async.before(that, xhr);
                         }
                     },
                     success: function(data) {
@@ -739,12 +725,9 @@
                     return;
                 }
                 if (this.options.dismissible && this.getTrigger() === 'click') {
-                    if (isMobile) {
-                        $document.off('touchstart.webui-popover').on('touchstart.webui-popover', $.proxy(this.bodyTouchStartHandler, this));
-                    } else {
-                        $document.off('keyup.webui-popover').on('keyup.webui-popover', $.proxy(this.escapeHandler, this));
-                        $document.off('click.webui-popover').on('click.webui-popover', $.proxy(this.bodyClickHandler, this));
-                    }
+                    $document.off('keyup.webui-popover').on('keyup.webui-popover', $.proxy(this.escapeHandler, this));
+                    $document.off('click.webui-popover touchend.webui-popover')
+                        .on('click.webui-popover touchend.webui-popover', $.proxy(this.bodyClickHandler, this));
                 } else if (this.getTrigger() === 'hover') {
                     $document.off('touchend.webui-popover')
                         .on('touchend.webui-popover', $.proxy(this.bodyClickHandler, this));
@@ -781,17 +764,7 @@
                     this.hideAll();
                 }
             },
-            bodyTouchStartHandler: function(e) {
-                var self = this;
-                var $eventEl = $(e.currentTarget);
-                $eventEl.on('touchend', function(e) {
-                    self.bodyClickHandler(e);
-                    $eventEl.off('touchend');
-                });
-                $eventEl.on('touchmove', function() {
-                    $eventEl.off('touchend');
-                });
-            },
+
             bodyClickHandler: function(e) {
                 _isBodyEventHandled = true;
                 var canHide = true;
@@ -1149,7 +1122,7 @@
             };
             var _isCreated = function(selector) {
                 var created = true;
-                $(selector).each(function(i, item) {
+                $(selector).each(function(item) {
                     created = created && $(item).data('plugin_' + pluginName) !== undefined;
                 });
                 return created;
@@ -1164,11 +1137,6 @@
             var _hide = function(selector) {
                 $(selector).webuiPopover('hide');
             };
-
-            var _setDefaultOptions = function(options) {
-                defaults = $.extend({}, defaults, options);
-            };
-
             var _updateContent = function(selector, content) {
                 var pop = $(selector).data('plugin_' + pluginName);
                 if (pop) {
@@ -1189,35 +1157,13 @@
                 }
             };
 
-            var _updateContentAsync = function(selector, url) {
-                var pop = $(selector).data('plugin_' + pluginName);
-                if (pop) {
-                    var cache = pop.getCache();
-                    var type = pop.options.type;
-                    pop.options.cache = false;
-                    pop.options.url = url;
-
-                    if (pop._opened) {
-                        pop._opened = false;
-                        pop.show();
-                    } else {
-                        pop.options.type = 'async';
-                        pop.setContentASync(pop.content);
-                    }
-                    pop.options.cache = cache;
-                    pop.options.type = type;
-                }
-            };
-
             return {
                 show: _show,
                 hide: _hide,
                 create: _create,
                 isCreated: _isCreated,
                 hideAll: _hideAll,
-                updateContent: _updateContent,
-                updateContentAsync: _updateContentAsync,
-                setDefaultOptions: _setDefaultOptions
+                updateContent: _updateContent
             };
         })();
         window.WebuiPopovers = webuiPopovers;
