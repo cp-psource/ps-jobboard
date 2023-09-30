@@ -94,7 +94,7 @@ class JE_WYSIWYG
         wp_register_script('je_sceditor', je()->plugin_url . 'app/addons/je-wysiwyg/sceditor/minified/jquery.sceditor.min.js', array('jquery'));
         wp_register_script('je_sceditor_xhtml', je()->plugin_url . 'app/addons/je-wysiwyg/sceditor/minified/plugins/bbcode.js', array('jquery', 'mm_sceditor'));
         //cause the adminbar needed from anywhere,so we bind it
-        wp_register_style('je_sceditor', je()->plugin_url . 'app/addons/je-wysiwyg/sceditor/minified/themes/default.min.css');
+        wp_register_style('je_sceditor', je()->plugin_url . 'app/addons/je-wysiwyg/sceditor/minified/themes/square.min.css');
 
     }
 }
