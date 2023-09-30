@@ -73,14 +73,14 @@ class JE_AddOn_Table extends WP_List_Table
                     }
                     $text = '';
                     if ( is_array( $plugin_data ) && count( $plugin_data ) ) {
-                        $text = sprintf(__("Erweiterung <strong>%s</strong> required", 'psjb'), $plugin_data['Name']);
+                        $text = sprintf(__("Erweiterung <strong>%s</strong> erforderlich", 'psjb'), $plugin_data['Name']);
                     } else {
-                        $text = sprintf(__("Erweiterung <strong>%s</strong> required", 'psjb'), $item['required']);
+                        $text = sprintf(__("Erweiterung <strong>%s</strong> erforderlich", 'psjb'), $item['required']);
                     }
                     $html .= '<br/>' . $text;
                 }
             } else {
-                $html .= '<br><a class="mm-plugin" data-type="active" data-id="' . esc_attr($item['col_id']) . '"  href="#">' . __('Aktvieren <i class="fa fa-circle-o-notch fa-spin loader-ani hide"></i>', 'psjb') . '</a>';
+                $html .= '<br><a class="mm-plugin" data-type="active" data-id="' . esc_attr($item['col_id']) . '"  href="#">' . __('Aktivieren <i class="fa fa-circle-o-notch fa-spin loader-ani hide"></i>', 'psjb') . '</a>';
             }
         }
 

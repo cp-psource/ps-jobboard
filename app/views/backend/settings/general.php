@@ -228,7 +228,7 @@ $form->open(array("attributes" => array("class" => "form-horizontal"))); ?>
                     },
                     success: function (data) {
                         that.removeAttr('disabled');
-                        that.text('<?php echo esc_js(__('Aktvieren','psjb') )?>');
+                        that.text('<?php echo esc_js(__('Aktivieren','psjb') )?>');
                         $('.notif').html(data).removeClass('hide');
                         $('#jbp_setting_nav').load("<?php echo "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?> #jbp_setting_nav li");
                     }

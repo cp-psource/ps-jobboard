@@ -86,7 +86,7 @@ class MMessage_Backend_Controller extends IG_Request
             $setting->save();
             wp_send_json(array(
                 'noty' => __("The add on <strong>{$meta['Name']}</strong> deactivate", mmg()->domain),
-                'text' => __("Aktvieren", mmg()->domain)
+                'text' => __("Aktivieren", mmg()->domain)
             ));
             exit;
         }

@@ -9,12 +9,12 @@ $f_id = uniqid();
                 class="hidden-xs hidden-sm"><?php echo $attributes['title'] ?></strong>
             <small
                 class="hidden-md hidden-lg"><?php echo $attributes['title'] ?></small>
-            <button type="button"
+        </div>
+        <section class="panel-body file-view-port">
+        <button type="button"
                     class="btn btn-primary btn-xs pull-right add-file"><?php _e('Hinzufügen', ig_uploader()->domain) ?> <i
                     class="glyphicon glyphicon-plus"></i>
             </button>
-        </div>
-        <section class="panel-body file-view-port">
             <?php if (is_array($models) && count($models)): ?>
                 <?php foreach ($models as $model): ?>
                     <?php $this->render_partial(apply_filters('igu_single_file_template', '_single_file'), array(
