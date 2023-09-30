@@ -6289,6 +6289,7 @@ button.ig-container .close {
 }
 .ig-container .pull-right {
   float: right !important;
+  margin-top: 25px;
 }
 .ig-container .pull-left {
   float: left !important;
@@ -6588,6 +6589,7 @@ button.ig-container .close {
 }
 .ig-container .pull-right {
   float: right;
+  margin-top: 25px;
 }
 .ig-container .pull-left {
   float: left;
