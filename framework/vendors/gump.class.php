@@ -417,85 +417,85 @@ if ( ! class_exists( 'GUMP' ) ) {
 						$resp[ $field_key ] = sprintf( __( "There is no validation rule for <span class=\"%s\">%s</span>", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_required':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field is required", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> ist erforderlich", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_valid_email':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field is required to be a valid email address", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> ist erforderlich to be a valid email address", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_max_len':
 						if ( $param == 1 ) {
-							$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to be shorter than %d character", $this->text_domain ), $field_class, $field, $param );
+							$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss kürzer sein als %d Zeichen", $this->text_domain ), $field_class, $field, $param );
 						} else {
-							$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to be shorter than %d characters", $this->text_domain ), $field_class, $field, $param );
+							$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss kürzer sein als %d Zeichens", $this->text_domain ), $field_class, $field, $param );
 						}
 						break;
 					case 'validate_min_len':
 						if ( $param == 1 ) {
-							$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to be longer than %d character", $this->text_domain ), $field_class, $field, $param );
+							$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss länger als %d Zeichen sein", $this->text_domain ), $field_class, $field, $param );
 						} else {
-							$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to be longer than %d characters", $this->text_domain ), $field_class, $field, $param );
+							$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss länger als %d Zeichen seins", $this->text_domain ), $field_class, $field, $param );
 						}
 						break;
 					case 'validate_exact_len':
 						if ( $param == 1 ) {
-							$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to be exactly %d character in length", $this->text_domain ), $field_class, $field, $param );
+							$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss genau %d Zeichen lang sein", $this->text_domain ), $field_class, $field, $param );
 						} else {
-							$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to be exactly %d characters in length", $this->text_domain ), $field_class, $field, $param );
+							$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss genau %d Zeichen lang sein", $this->text_domain ), $field_class, $field, $param );
 						}
 						break;
 					case 'validate_alpha':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field may only contain alpha characters(a-z)", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> darf nur Alpha-Zeichen (a-z) enthalten.", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_alpha_numeric':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field may only contain alpha-numeric characters", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> darf nur alphanumerische Zeichen enthalten", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_alpha_dash':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field may only contain alpha characters &amp; dashes", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> darf nur Alphazeichen &amp; Bindestriche enthalten", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_numeric':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field may only contain numeric characters", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> darf nur numerische Zeichen enthalten", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_integer':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field may only contain a numeric value", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> darf nur einen numerischen Wert enthalten", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_boolean':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field may only contain a true or false value", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> darf nur einen Wert von true oder false enthalten", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_float':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field may only contain a float value", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> darf nur einen Float-Wert enthalten", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_valid_url':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field is required to be a valid URL", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> ist erforderlich, um eine gültige URL zu sein", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_url_exists':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> URL does not exist", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Die <span class=\"%s\">%s</span> URL existiert nicht", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_valid_ip':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to contain a valid IP address", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss eine gültige IP-Adresse enthalten", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_valid_cc':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to contain a valid credit card number", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss eine gültige Kreditkartennummer enthalten.", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_valid_name':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to contain a valid human name", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss einen gültigen menschlichen Namen enthalten", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_contains':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to contain one of these values: %s", $this->text_domain ), $field_class, $field, implode( ', ', $param ) );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss einen der folgenden Werte enthalten: %s", $this->text_domain ), $field_class, $field, implode( ', ', $param ) );
 						break;
 					case 'validate_street_address':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to be a valid street address", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss eine gültige Straßenadresse sein.", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_date':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to be a valid date", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss ein gültiges Datum sein.", $this->text_domain ), $field_class, $field );
 						break;
 					case 'validate_min_numeric':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to be a numeric value, equal to, or higher than %s", $this->text_domain ), $field_class, $field, $param );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss ein numerischer Wert sein, der gleich oder größer als %s ist.", $this->text_domain ), $field_class, $field, $param );
 						break;
 					case 'validate_max_numeric':
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field needs to be a numeric value, equal to, or lower than $param", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> muss ein numerischer Wert sein, der gleich oder kleiner ist als $param", $this->text_domain ), $field_class, $field );
 						break;
 					default:
-						$resp[ $field_key ] = sprintf( __( "The <span class=\"%s\">%s</span> field is invalid", $this->text_domain ), $field_class, $field );
+						$resp[ $field_key ] = sprintf( __( "Das Feld <span class=\"%s\">%s</span> ist ungültig", $this->text_domain ), $field_class, $field );
 				}
 			}
 
