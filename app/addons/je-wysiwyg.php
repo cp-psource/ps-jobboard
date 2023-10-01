@@ -65,7 +65,7 @@ class JE_WYSIWYG
                             var editors = $('.je_wysiwyg').sceditor({
                                 plugins: "xhtml",
                                 autoUpdate: true,
-                                width: '98%',
+                                width: '100%',
                                 height: '300px', // Ändere die Höhe nach Bedarf
                                 resizeMinWidth: '-1',
                                 resizeMaxWidth: '100%',
