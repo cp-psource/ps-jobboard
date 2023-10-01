@@ -11,7 +11,7 @@ Text Domain: psjb
 
 /*
 Copyright 2014-2023 WMS N@W (https://n3rds.work)
-Author – DerN3rd (Incsub)
+Author – DerN3rd
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License (Version 2 - GPLv2) as published by
