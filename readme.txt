@@ -21,12 +21,14 @@ Präsentiere Deine Fähigkeiten
 Es hat alles, was Du brauchst, um Deine Fähigkeiten zu zeigen. Teile einen Avatar, eine Biografie, Kontaktinformationen, Beispielarbeit und einen Link zu sozialen Profilen. 
 Wähle die perfekte Person von Hand aus, basierend auf Erfahrung, Portfolio und Empfehlungen anderer.
 
+Aktiviere Erweiterungen 
+Und erweitere die Möglichkeiten von PS Jobboard um weitere Funktionen, so kannst Du zum Beispiel über die PSeCommerce Schnittstelle Guthabenpakete anbieten um Dein Jobboard zu monetarisieren.
+
 [POWERED BY PSOURCE](https://n3rds.work/psource_kategorien/psource-plugins/)
 
 = Mehr Hilfe? =
 
 [Projektseite](https://n3rds.work/piestingtal_source/ps-jobboard-plugin/)
-[Supportforum](https://n3rds.work/forums/forum/psource-support-foren/ps-jobboard-supportforum/)
 [GitHub](https://github.com/piestingtal-source/psjobboard)
 
 == Mehr PSOURCE ==

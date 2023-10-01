@@ -108,7 +108,7 @@ class JE_Custom_Layout
             <div class="page-header" style="margin-top: 0">
                 <h3><?php _e('Benutzerdefiniertes Layout der Expertenliste', 'psjb') ?></h3>
             </div>
-            <p>We have 4 size:</p>
+            <p><?php _e("Wir haben 4 Größen:", 'psjb') ?></p>
             <ul>
                 <li><strong>lg</strong> <?php _e('bedeutet, dass der Expertenblock 100% breit ist', 'psjb') ?></li>
                 <li><strong>md</strong> <?php _e('bedeutet, dass der Expertenblock eine halbe Breite hat', 'psjb') ?></li>
