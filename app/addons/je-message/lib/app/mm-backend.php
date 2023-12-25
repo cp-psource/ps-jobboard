@@ -55,7 +55,6 @@ class MM_Backend
         //die;
         return $allcaps;
     }
-
     function create_page()
     {
         if (isset($_POST['m_type'])) {

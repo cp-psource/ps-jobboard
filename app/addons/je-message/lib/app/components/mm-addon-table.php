@@ -4,7 +4,7 @@ if (!class_exists('WP_List_Table')) {
 }
 if(!class_exists('MM_AddOn_Table')) {
     /**
-     * Author: hoangngo
+     * Autor: DerN3rd
      */
     class MM_AddOn_Table extends WP_List_Table
     {
@@ -33,7 +33,7 @@ if(!class_exists('MM_AddOn_Table')) {
         {
             return $columns = array(
                 'col_name' => __('Name', mmg()->domain),
-                'col_description' => __('Beschreibung', mmg()->domain),
+                'col_description' => __('Details', mmg()->domain),
             );
         }
 
@@ -85,8 +85,8 @@ if(!class_exists('MM_AddOn_Table')) {
                 $items[] = array(
                     'col_id' => $key,
                     'col_name' => $val['Name'],
-                    'col_description' => $val['Description'],
-                    'col_author' => $val['Author']
+                    'col_description' => $val['Beschreibung'],
+                    'col_author' => $val['Autor']
                 );
             }
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: DerN3rd
+ * Autor: DerN3rd
  */
 class MAjax extends IG_Request
 {

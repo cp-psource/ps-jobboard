@@ -5,7 +5,7 @@
     <div class="ig-container">
         <div class="mmessage-container">
             <div class="page-header">
-                <h2><?php echo sprintf(__("Diagnose Center", mmg()->domain)) ?></h2>
+                <h2><?php echo sprintf(__("Toolbox", mmg()->domain)) ?></h2>
             </div>
             <div class="row no-margin">
                 <div class="alert alert-danger hide">

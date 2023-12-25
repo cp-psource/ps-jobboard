@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Author: WPMU DEV
- * Name: Message filters
- * Description:
+ * Autor: WMS N@W
+ * Name: Nachrichtenfilter
+ * Beschreibung: Ermögliche Benutzern das Filtern von Nachrichten (unabhängig von den Parametern, mit denen sie filtern können)
  * Icon:fa-user-secret
  */
 if (!class_exists('MM_Words_Filter')) {
@@ -65,14 +65,14 @@ if (!class_exists('MM_Words_Filter')) {
             $subject = mmg()->post('subject');
 
             if (empty($regex) || empty($subject)) {
-                wp_send_json(__("Pattern and Subject can't be empty", mmg()->domain));
+                wp_send_json(__("Muster und Betreff dürfen nicht leer sein", mmg()->domain));
             }
 
             $regex = "/" . stripcslashes($regex) . "/i";
             if (preg_match($regex, $subject)) {
-                wp_send_json(__("Your pattern matched the subject", mmg()->domain));
+                wp_send_json(__("Dein Muster passte zum Muster", mmg()->domain));
             } else {
-                wp_send_json(__("Your pattern mismatched the subject", mmg()->domain));
+                wp_send_json(__("Dein Muster stimmte nicht mit dem Muster überein", mmg()->domain));
             }
         }
 
@@ -109,7 +109,7 @@ if (!class_exists('MM_Words_Filter')) {
                 $model->save();
                 wp_send_json(array(
                     'status' => 1,
-                    'message' => sprintf(__("The word <strong>%s</strong> has been added to the block list", mmg()->domain), $data['word'])
+                    'message' => sprintf(__("Das Wort <strong>%s</strong> wurde der Blockliste hinzugefügt", mmg()->domain), $data['word'])
                 ));
             } else {
                 wp_send_json(array(
@@ -141,7 +141,7 @@ if (!class_exists('MM_Words_Filter')) {
             $model = new Words_Filter_Model();
             $model->import(mmg()->post('Words_Filter_Model'));
             $model->save();
-            $this->set_flash('setting_save', __("Your settings have been successfully updated.", mmg()->domain));
+            $this->set_flash('setting_save', __("Deine Einstellungen wurden erfolgreich aktualisiert.", mmg()->domain));
             $this->refresh();
         }
 
@@ -150,7 +150,7 @@ if (!class_exists('MM_Words_Filter')) {
             ?>
             <li class="<?php echo mmg()->get('tab') == 'filter' ? 'active' : null ?>">
                 <a href="<?php echo esc_url(add_query_arg('tab', 'filter')) ?>">
-                    <i class="fa fa-filter"></i> <?php _e("Words Filter", mmg()->domain) ?></a>
+                    <i class="fa fa-filter"></i> <?php _e("Wortfilter", mmg()->domain) ?></a>
             </li>
         <?php
         }
@@ -162,10 +162,10 @@ if (!class_exists('MM_Words_Filter')) {
             <?php $form = new IG_Active_Form($model);
             $form->open(array("attributes" => array("class" => "form-horizontal")));?>
             <div class="page-header">
-                <h4><?php _e("General Settings", mmg()->domain) ?></h4>
+                <h4><?php _e("Allgemeine Einstellungen", mmg()->domain) ?></h4>
             </div>
             <div class="form-group <?php echo $model->has_error("replacer") ? "has-error" : null ?>">
-                <?php $form->label("replacer", array("text" => "Replacer", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
+                <?php $form->label("replacer", array("text" => "Ersatzwort", "attributes" => array("class" => "col-lg-2 control-label"))) ?>
                 <div class="col-lg-10">
                     <?php $form->text("replacer", array("attributes" => array("class" => "form-control"))) ?>
                     <span class="help-block m-b-none error-replacer"><?php $form->error("replacer") ?></span>
@@ -175,14 +175,14 @@ if (!class_exists('MM_Words_Filter')) {
             <?php wp_nonce_field('mm_words_filter') ?>
             <div class="row">
                 <div class="col-md-2 col-md-offset-2">
-                    <button type="submit" class="btn btn-primary"><?php _e("Save Changes", mmg()->domain) ?></button>
+                    <button type="submit" class="btn btn-primary"><?php _e("Änderungen speichern", mmg()->domain) ?></button>
                 </div>
             </div>
             <?php $form->close();?>
             <div class="clearfix"></div>
             <br/>
             <div class="page-header">
-                <h4><?php _e("Add new word", mmg()->domain) ?></h4>
+                <h4><?php _e("Neues Wort hinzufügen", mmg()->domain) ?></h4>
             </div>
             <div class="alert alert-words-list hide">
 
@@ -191,31 +191,31 @@ if (!class_exists('MM_Words_Filter')) {
                 <input type="hidden" name="key">
 
                 <div class="form-group">
-                    <label class="control-label col-lg-2"><?php _e("Word", mmg()->domain) ?></label>
+                    <label class="control-label col-lg-2"><?php _e("Wort", mmg()->domain) ?></label>
 
                     <div class="col-lg-5">
                         <input name="word" type="text" class="form-control"/>
                         <span
-                            class="help-block"><?php _e("Word to block, you can use regex for this", mmg()->domain) ?></span>
+                            class="help-block"><?php _e("Wort zu blockieren, du kannst Regex dafür verwenden", mmg()->domain) ?></span>
                     </div>
                 </div>
                 <div class="clearfix"></div>
                 <br/>
 
                 <div class="form-group">
-                    <label class="control-label col-lg-2"><?php _e("Replacer", mmg()->domain) ?></label>
+                    <label class="control-label col-lg-2"><?php _e("Ersatzwort", mmg()->domain) ?></label>
 
                     <div class="col-lg-5">
                         <input name="replacer" type="text" class="form-control"/>
                         <span
-                            class="help-block"><?php _e("Replacer for this word, if empty, use the global instead", mmg()->domain) ?></span>
+                            class="help-block"><?php _e("Wenn das Wort für dieses Wort leer ist, verwende stattdessen das globale Wort", mmg()->domain) ?></span>
                     </div>
                 </div>
                 <div class="clearfix"></div>
                 <br/>
 
                 <div class="form-group">
-                    <label class="control-label col-lg-2"><?php _e("Is Regex", mmg()->domain) ?></label>
+                    <label class="control-label col-lg-2"><?php _e("Ist Regex", mmg()->domain) ?></label>
 
                     <div class="col-lg-5">
                         <div class="checkbox">
@@ -229,7 +229,7 @@ if (!class_exists('MM_Words_Filter')) {
                 <br/>
 
                 <div class="form-group regex-group hide">
-                    <label class="control-label col-lg-2"><?php _e("Regex Subject", mmg()->domain) ?></label>
+                    <label class="control-label col-lg-2"><?php _e("Regex Betreff", mmg()->domain) ?></label>
 
                     <div class="row">
                         <div class="col-md-5">
@@ -237,7 +237,7 @@ if (!class_exists('MM_Words_Filter')) {
                         </div>
                         <div class="col-md-2">
                             <button type="button"
-                                    class="btn btn-default btn-sm test-regex"><?php _e("Test Regex") ?></button>
+                                    class="btn btn-default btn-sm test-regex"><?php _e("Teste Regex") ?></button>
                         </div>
                     </div>
                 </div>
@@ -246,19 +246,19 @@ if (!class_exists('MM_Words_Filter')) {
 
                 <div class="row">
                     <div class="col-md-2 col-md-offset-2">
-                        <button type="submit" class="btn btn-primary"><?php _e("Save", mmg()->domain) ?></button>
+                        <button type="submit" class="btn btn-primary"><?php _e("Speichern", mmg()->domain) ?></button>
                     </div>
                 </div>
             </form>
             <div class="clearfix"></div><br/>
             <div class="page-header">
-                <h4><?php _e("Block list", mmg()->domain) ?></h4>
+                <h4><?php _e("Blockliste", mmg()->domain) ?></h4>
             </div>
             <table class="table" id="badword-list-table">
                 <thead>
                 <tr>
-                    <th><?php _e("Block word", mmg()->domain) ?></th>
-                    <th><?php _e("Is Regex", mmg()->domain) ?></th>
+                    <th><?php _e("Blockwort", mmg()->domain) ?></th>
+                    <th><?php _e("Ist Regex", mmg()->domain) ?></th>
                     <th></th>
                 </tr>
                 </thead>
@@ -268,11 +268,11 @@ if (!class_exists('MM_Words_Filter')) {
                     <?php foreach ($model->block_list as $key => $word): ?>
                         <tr>
                             <td><?php echo $word['word'] ?></td>
-                            <td><?php echo $word['type'] == 'regex' ? __("Yes", mmg()->domain) : __("No", mmg()->domain) ?></td>
+                            <td><?php echo $word['type'] == 'regex' ? __("Ja", mmg()->domain) : __("Nein", mmg()->domain) ?></td>
                             <th><a data-key="<?php echo $key ?>" class="edit_badword"
-                                   href="#"><?php _e("Edit", mmg()->domain) ?></a> |
+                                   href="#"><?php _e("Bearbeiten", mmg()->domain) ?></a> |
                                 <a class="remove_badword" data-key="<?php echo $key ?>"
-                                   href="#"><?php _e("Remove", mmg()->domain) ?></a></th>
+                                   href="#"><?php _e("Entfernen", mmg()->domain) ?></a></th>
                         </tr>
                     <?php endforeach; ?>
                 <?php endif; ?>

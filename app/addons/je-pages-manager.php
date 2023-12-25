@@ -264,7 +264,7 @@ class JE_Pages_Manager
                         <div class="clearfix"></div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 control-label"><?php _e('Job bearbeiten', 'psjb') ?></label>
+                        <label class="col-md-3 control-label"><?php _e('Bearbeite Job', 'psjb') ?></label>
 
                         <div class="col-md-9">
                             <div class="row">
@@ -531,12 +531,16 @@ class JE_Pages_Manager
                         },
                         success: function (data) {
                             var element = that.parent().parent().find('select').first();
-                            $.get('<?php echo "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>', function (html) {
-                                html = $(html);
-                                var clone = html.find('select[name="' + element.attr('name') + '"]');
-                                element.replaceWith(clone);
-                                that.removeAttr('disabled').text('<?php echo esc_js(__('Seite erstellen','psjb')) ?>');
-                            });
+                            if (data && !isNaN(data)) {
+                                var newPageId = parseInt(data);
+                                var newOption = $('<option>', {
+                                    value: newPageId,
+                                    text: 'Neue Seite'
+                                });
+                                element.append(newOption);
+                                element.val(newPageId);
+                            }
+                            that.removeAttr('disabled').text('<?php echo esc_js(__('Seite erstellen','psjb')) ?>');
                         }
                     })
                 })

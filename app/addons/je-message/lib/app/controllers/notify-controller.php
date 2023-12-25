@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: hoangngo
+ * Autor: DerN3rd
  */
 class Notify_Controller extends IG_Request
 {

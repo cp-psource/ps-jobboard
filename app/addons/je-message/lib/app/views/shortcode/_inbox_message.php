@@ -3,11 +3,16 @@ $message = array_shift($messages);
 if (!isset($render_reply)) {
     $render_reply = true;
 }
+$conversation = MM_Conversation_Model::model()->find($message->conversation_id);
 ?>
 <div class="ig-container">
     <section class="message-content">
         <div class="message-content-meta pull-left">
             <?php do_action('message_content_meta', $message) ?>
+            <?php if ($conversation->is_lock()): ?>
+                <div class="clearfix"></div>
+                <span><?php _e("Dieses Gespräch wurde gesperrt", mmg()->domain) ?></span>
+            <?php endif; ?>
         </div>
         <div class="message-content-actions pull-right">
             <?php if (mmg()->get('box') != 'sent' && $render_reply == true): ?>
@@ -15,31 +20,35 @@ if (!isset($render_reply)) {
                 $from_data = get_userdata($message->send_from);
                 ?>
                 <div class="btn-group btn-group-sm">
-                    <?php $conversation = MM_Conversation_Model::model()->find($message->conversation_id); ?>
                     <?php if ($conversation->is_archive()): ?>
-                        <a href="#" title="<?php echo esc_attr(__("Unarchive", mmg()->domain)) ?>"
+                        <a href="#" title="<?php echo esc_attr(__("Unarchiv", mmg()->domain)) ?>"
                            data-id="<?php echo esc_attr(mmg()->encrypt($message->conversation_id)) ?>"
                            data-type="<?php echo MM_Message_Status_Model::STATUS_READ ?>"
                            class="btn btn-sm btn-default mm-status"><i class="fa fa-undo"></i></a>
-                        <a href="#" title="<?php echo esc_attr(__("Delete", mmg()->domain)) ?>"
+                        <a href="#" title="<?php echo esc_attr(__("Löschen", mmg()->domain)) ?>"
                            data-id="<?php echo esc_attr(mmg()->encrypt($message->conversation_id)) ?>"
                            data-type="<?php echo MM_Message_Status_Model::STATUS_DELETE ?>"
                            class="btn btn-sm btn-danger mm-status"><i class="fa fa-trash"></i></a>
                     <?php else: ?>
-                        <a href="#reply-form-c"
-                           data-username="<?php echo esc_attr($from_data->user_login) ?>"
-                           data-parentid="<?php echo esc_attr(mmg()->encrypt($message->conversation_id)) ?>"
-                           data-id="<?php echo esc_attr(mmg()->encrypt($message->id)) ?>" type="button"
-                           class="btn btn-info btn-sm mm-reply">
-                            <i class="fa fa-reply"></i>
-                        </a>
-                        <a href="#" title="<?php echo esc_attr(__("Archive", mmg()->domain)) ?>"
+                        <?php if ($conversation->is_lock()): ?>
+                            <button type="button" class="btn btn-info btn-sm" disabled>
+                                <i class="fa fa-reply"></i>
+                            </button>
+                        <?php else: ?>
+                            <a href="#reply-form-c"
+                               data-username="<?php echo esc_attr($from_data->user_login) ?>"
+                               data-parentid="<?php echo esc_attr(mmg()->encrypt($message->conversation_id)) ?>"
+                               data-id="<?php echo esc_attr(mmg()->encrypt($message->id)) ?>" type="button"
+                               class="btn btn-info btn-sm mm-reply">
+                                <i class="fa fa-reply"></i>
+                            </a>
+                        <?php endif; ?>
+                        <a href="#" title="<?php echo esc_attr(__("Archiv", mmg()->domain)) ?>"
                            data-id="<?php echo esc_attr(mmg()->encrypt($message->conversation_id)) ?>"
                            data-type="<?php echo MM_Message_Status_Model::STATUS_ARCHIVE ?>"
                            class="btn btn-sm btn-default mm-status"><i class="fa fa-archive"></i></a>
                     <?php endif; ?>
                 </div>
-
             <?php endif; ?>
             <!--<button type="button" class="btn btn-danger btn-sm">
                 <i class="glyphicon glyphicon-trash"></i>
@@ -62,7 +71,7 @@ if (!isset($render_reply)) {
                         <div class="col-md-9">
                             <strong><?php
                                 if ($message->send_from == get_current_user_id()) {
-                                    echo __("me", mmg()->domain) . ' (' . $message->get_name($message->send_from) . ')';
+                                    echo __("Ich", mmg()->domain) . ' (' . $message->get_name($message->send_from) . ')';
                                 } else {
                                     echo $message->get_name($message->send_from);
                                 } ?></strong>
@@ -72,7 +81,7 @@ if (!isset($render_reply)) {
 
                             <div class="clearfix"></div>
                             <?php if (mmg()->get('box') == 'sent'): ?>
-                                <small><?php _e("To:", mmg()->domain) ?> <?php echo $message->get_name($message->send_to); ?></small>
+                                <small><?php _e("An:", mmg()->domain) ?> <?php echo $message->get_name($message->send_to); ?></small>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -141,7 +150,7 @@ if (!isset($render_reply)) {
                                                     </li>
                                                     <li class="list-group-item upload-item">
                                                         <i class="glyphicon glyphicon-file"></i>
-                                                        <?php _e('Type', mmg()->domain) ?>:
+                                                        <?php _e('Typ', mmg()->domain) ?>:
                                                         <strong><?php echo ucwords(get_post_mime_type($file)) ?></strong>
                                                     </li>
                                                 </ul>
@@ -163,15 +172,15 @@ if (!isset($render_reply)) {
                                             <?php if ($a_m->url): ?>
                                                 <a class="btn btn-info" rel="nofollow"
                                                    href="<?php echo esc_attr($a_m->url) ?>" target="_blank">
-                                                    <?php _e("Link aufrufen", mmg()->domain) ?>
+                                                    <?php _e("Besuche den Link", mmg()->domain) ?>
                                                 </a>
                                             <?php endif; ?>
                                             <?php if ($a_m->file): ?>
                                                 <a href="<?php echo $file_url ?>" download
-                                                   class="btn btn-info"><?php _e('Dateidownload', mmg()->domain) ?></a>
+                                                   class="btn btn-info"><?php _e('Download-Datei', mmg()->domain) ?></a>
                                             <?php endif; ?>
                                             <button type="button" class="btn btn-default attachment-close"
-                                                    data-dismiss="modal">Schliessen
+                                                    data-dismiss="modal">Close
                                             </button>
                                         </div>
                                     </div>
@@ -209,7 +218,7 @@ if (!isset($render_reply)) {
 
                                         <div class="clearfix"></div>
                                         <?php if (mmg()->get('box') == 'sent'): ?>
-                                            <small><?php _e("To:", mmg()->domain) ?> <?php echo $message->get_name($message->send_to) ?></small>
+                                            <small><?php _e("An:", mmg()->domain) ?> <?php echo $message->get_name($message->send_to) ?></small>
                                         <?php endif; ?>
                                     </div>
                                 </div>
@@ -279,7 +288,7 @@ if (!isset($render_reply)) {
                                                                 </li>
                                                                 <li class="list-group-item upload-item">
                                                                     <i class="glyphicon glyphicon-file"></i>
-                                                                    <?php _e('Type', mmg()->domain) ?>:
+                                                                    <?php _e('Typ', mmg()->domain) ?>:
                                                                     <strong><?php echo ucwords(get_post_mime_type($file)) ?></strong>
                                                                 </li>
                                                             </ul>
@@ -301,15 +310,15 @@ if (!isset($render_reply)) {
                                                         <?php if ($a_m->url): ?>
                                                             <a class="btn btn-info" rel="nofollow"
                                                                href="<?php echo esc_attr($a_m->url) ?>" target="_blank">
-                                                                <?php _e("Link aufrufen", mmg()->domain) ?>
+                                                                <?php _e("Besuche den Link", mmg()->domain) ?>
                                                             </a>
                                                         <?php endif; ?>
                                                         <?php if ($a_m->file): ?>
                                                             <a href="<?php echo $file_url ?>" download
-                                                               class="btn btn-info"><?php _e('Dateidownload', mmg()->domain) ?></a>
+                                                               class="btn btn-info"><?php _e('Download-Datei', mmg()->domain) ?></a>
                                                         <?php endif; ?>
                                                         <button type="button" class="btn btn-default attachment-close"
-                                                                data-dismiss="modal">Schliessen
+                                                                data-dismiss="modal">Close
                                                         </button>
                                                     </div>
                                                 </div>

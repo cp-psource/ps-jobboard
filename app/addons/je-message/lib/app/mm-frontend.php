@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: DerN3rd
+ * Autor: DerN3rd
  */
 class MM_Frontend extends IG_Request
 {

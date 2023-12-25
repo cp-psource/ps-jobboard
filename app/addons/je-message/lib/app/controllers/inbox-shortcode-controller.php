@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: DerN3rd
+ * Autor: DerN3rd
  */
 class Inbox_Shortcode_Controller extends IG_Request
 {
@@ -78,17 +78,19 @@ class Inbox_Shortcode_Controller extends IG_Request
         $id = mmg()->decrypt(mmg()->post('id'));
         $model = MM_Conversation_Model::model()->find($id);
         $html = $this->render_inbox_message($model);
-
         if (!$model->is_archive()) {
             $model->mark_as_read();
             do_action('mm_conversation_read', $model);
         }
         $messages = $model->get_messages();
         //update replace form
-        $reply_form = $this->render_partial('shortcode/_reply_form', array(
-            'message' => array_shift($messages)
-        ), false);
-
+        if ($model->is_lock() == false) {
+            $reply_form = $this->render_partial('shortcode/_reply_form', array(
+                'message' => array_shift($messages)
+            ), false);
+        } else {
+            $reply_form = '';
+        }
         wp_send_json(array(
             'html' => $html,
             'reply_form' => $reply_form,
@@ -257,7 +259,7 @@ class Inbox_Shortcode_Controller extends IG_Request
 
                 $this->_reply_message($conv_id, $message_id, $user_ids, $model);
 
-                $this->set_flash('mm_sent_' . get_current_user_id(), __("Your message has been sent.", mmg()->domain));
+                $this->set_flash('mm_sent_' . get_current_user_id(), __("Deine Nachricht wurde gesendet.", mmg()->domain));
                 wp_send_json(array(
                     'status' => 'success'
                 ));
@@ -281,7 +283,7 @@ class Inbox_Shortcode_Controller extends IG_Request
                     }
                 }
 
-                $this->set_flash('mm_sent_' . get_current_user_id(), __("Your message has been sent.", mmg()->domain));
+                $this->set_flash('mm_sent_' . get_current_user_id(), __("Deine Nachricht wurde gesendet.", mmg()->domain));
                 wp_send_json(array(
                     'status' => 'success'
                 ));
@@ -354,7 +356,6 @@ class Inbox_Shortcode_Controller extends IG_Request
                 }
             }
         }
-
         return apply_filters('mm_send_to_this_users', $data);
     }
 

@@ -8,20 +8,20 @@
                         <a href="<?php echo esc_url(add_query_arg('box', 'inbox', get_permalink(mmg()->setting()->inbox_page))) ?>"
                            class="mm-tooltip btn btn-default btn-sm <?php echo mmg()->get('box', 'inbox') == 'inbox' ? 'active' : null ?>"
                            title="<?php echo MM_Conversation_Model::count_all() ?> <?php _e("Nachricht(en)", mmg()->domain) ?>">
-                            <i class="fa fa-inbox"></i> <?php _e("Postfach", mmg()->domain) ?>
+                            <i class="fa fa-inbox"></i> <?php _e("Posteingang", mmg()->domain) ?>
                         </a>
                         <a href="<?php echo esc_url(add_query_arg('box', 'unread', get_permalink(mmg()->setting()->inbox_page))) ?>"
                            class="mm-tooltip unread-count btn btn-default btn-sm <?php echo mmg()->get('box') == 'unread' ? 'active' : null ?>"
 
-                           data-text="<?php _e("message(s)", mmg()->domain) ?>"
-                           title="<?php echo MM_Conversation_Model::count_unread() ?> <?php _e("message(s)", mmg()->domain) ?>">
+                           data-text="<?php _e("Nachricht(en)", mmg()->domain) ?>"
+                           title="<?php echo MM_Conversation_Model::count_unread() ?> <?php _e("Nachricht(en)", mmg()->domain) ?>">
                             <i class="fa fa-envelope"></i> <?php _e("Ungelesen", mmg()->domain) ?>
                         </a>
                         <a href="<?php echo esc_url(add_query_arg('box', 'read', get_permalink(mmg()->setting()->inbox_page))) ?>"
                            class="mm-tooltip btn read-count btn-default btn-sm <?php echo mmg()->get('box') == 'read' ? 'active' : null ?>"
 
-                           data-text="<?php _e("message(s)", mmg()->domain) ?>"
-                           title="<?php echo MM_Conversation_Model::count_read() ?> <?php _e("message(s)", mmg()->domain) ?>">
+                           data-text="<?php _e("Nachricht(en)", mmg()->domain) ?>"
+                           title="<?php echo MM_Conversation_Model::count_read() ?> <?php _e("Nachricht(en)", mmg()->domain) ?>">
                             <i class="glyphicon glyphicon-eye-open"></i> <?php _e("Gelesen", mmg()->domain) ?>
                         </a>
 
@@ -31,7 +31,7 @@
                         </a>
                         <a href="<?php echo esc_url(add_query_arg('box', 'archive', get_permalink(mmg()->setting()->inbox_page))) ?>"
                            class="btn btn-default btn-sm <?php echo mmg()->get('box') == 'archive' ? 'active' : null ?>">
-                            <i class="glyphicon glyphicon-briefcase"></i> <?php _e("Archive", mmg()->domain) ?>
+                            <i class="glyphicon glyphicon-briefcase"></i> <?php _e("Archiv", mmg()->domain) ?>
                         </a>
                         <a class="btn btn-default btn-sm hidden-xs hidden-sm"
                            href="<?php echo esc_url(add_query_arg('box', 'setting')) ?>">
@@ -42,7 +42,7 @@
                 <?php if (is_user_logged_in()): ?>
                     <div class="col-md-2 hidden-xs hidden-sm no-padding text-right">
                         <a class="btn btn-primary btn-sm mm-compose" href="#compose-form-container">
-                            <?php _e("Verfassen", mmg()->domain) ?>
+                            <?php _e("Nachricht verfassen", mmg()->domain) ?>
                         </a>
                     </div>
                 <?php endif; ?>
@@ -51,10 +51,10 @@
                     <div class="col-sm-12 col-xs-12 hidden-md hidden-lg no-padding">
                         <br/>
                         <a class="btn btn-default btn-sm" href="<?php echo esc_url(add_query_arg('box', 'setting')) ?>">
-                            <i class="fa fa-gear"></i> <?php _e("Settings", mmg()->domain) ?>
+                            <i class="fa fa-gear"></i> <?php _e("Einstellungen", mmg()->domain) ?>
                         </a>
                         <a class="btn btn-primary btn-sm mm-compose" href="#compose-form-container">
-                            <?php _e("Verfassen", mmg()->domain) ?>
+                            <?php _e("Nachricht verfassen", mmg()->domain) ?>
                         </a>
                     </div>
                     <div class="clearfix"></div>

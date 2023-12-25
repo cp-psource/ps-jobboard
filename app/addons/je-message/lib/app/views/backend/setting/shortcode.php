@@ -11,7 +11,7 @@
             <p><code>[message_inbox]</code></p>
             <ul>
                 <li>
-                    <?php _e("This shortcode will display the private message interface.There are no parameters for this shortcode.", mmg()->domain) ?>
+                    <?php _e("Dieser Shortcode zeigt die Schnittstelle für private Nachrichten an. Für diesen Shortcode gibt es keine Parameter.", mmg()->domain) ?>
                 </li>
             </ul>
         </div>
@@ -26,30 +26,30 @@
             <ul>
                 <li>
                     <mark><?php _e("user_id", mmg()->domain) ?></mark>
-                    : <?php _e("The id of the user who is the message recipient.", mmg()->domain) ?>
+                    : <?php _e("Die ID des Benutzers, der der Nachrichtenempfänger ist.", mmg()->domain) ?>
                 </li>
                 <li>
                     <mark><?php _e("user_name", mmg()->domain) ?></mark>
-                    : <?php _e("The user name of the message recipient. User ID will be given higher priority than user_name.", mmg()->domain) ?>
+                    : <?php _e("Der Benutzername des Nachrichtenempfängers. Die Benutzer-ID erhält eine höhere Priorität als der Benutzername.", mmg()->domain) ?>
                 </li>
                 <li>
                     <mark><?php _e("in_the_loop", mmg()->domain) ?></mark>
-                    : <?php _e("Use 1 for true, 0 for false. This shortcode is used for case when there is no user ID or user_name. This shortcode will pull the author user_ID if the shortcode is inside the loop.", mmg()->domain) ?>
+                    : <?php _e("Verwende 1 für wahr, 0 für falsch. Dieser Shortcode wird verwendet, wenn keine Benutzer-ID oder kein Benutzername vorhanden ist. Dieser Shortcode zieht die Benutzer-ID des Autors, wenn sich der Shortcode in der Schleife befindet.", mmg()->domain) ?>
                 </li>
                 <li>
                     <mark><?php _e("text", mmg()->domain) ?></mark>
-                    : <?php _e("The button text to display, default is \"Message me.\"", mmg()->domain) ?>
+                    : <?php _e("Der anzuzeigende Schaltflächentext lautet standardmäßig: Nachricht an mich. ", mmg()->domain) ?>
                 </li>
                 <li>
                     <mark><?php _e("class", mmg()->domain) ?></mark>
-                    : <?php _e("If you want to style the message button, use this shortcodes parameter to define the class of the message button. ", mmg()->domain) ?>
+                    : <?php _e("Wenn Du die Nachrichtenschaltfläche formatieren möchtest, verwende diesen Shortcodes-Parameter, um die Klasse der Nachrichtenschaltfläche zu definieren. ", mmg()->domain) ?>
                 </li>
                 <li>
                     <mark><?php _e("subject", mmg()->domain) ?></mark>
-                    : <?php _e("This will define the subject of the message sent, if one is not added by the user. ", mmg()->domain) ?>
+                    : <?php _e("Dies definiert den Betreff der gesendeten Nachricht, wenn der Benutzer keinen hinzufügt. ", mmg()->domain) ?>
                 </li>
                 <li class="text-info">
-                    <?php _e("Please note that <strong>user_id</strong> or <strong>user_name</strong> or <strong>in_the_loop</strong> must be defined.") ?>
+                    <?php _e("Bitte beachte, dass <strong>user_id</strong> oder <strong>user_name</strong> oder <strong>in_the_loop</strong> definiert werden muss.") ?>
                 </li>
             </ul>
 

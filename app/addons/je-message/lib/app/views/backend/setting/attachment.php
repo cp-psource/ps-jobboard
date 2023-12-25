@@ -1,12 +1,12 @@
-<h4><?php _e("Which roles can upload attachments", mmg()->domain) ?></h4>
+<h4><?php _e("Welche Rollen können Anhänge hochladen?", mmg()->domain) ?></h4>
 <?php $form = new IG_Active_Form($model);
 $form->open(array("attributes" => array("class" => "form-horizontal"))); ?>
 <input type="hidden" name="<?php echo $form->build_name('allow_attachment') ?>[]" value="">
 <table class="table table-condensed table-hover">
     <thead>
     <tr>
-        <th><?php _e("Role name", mmg()->domain) ?></th>
-        <th><?php _e("Can upload", mmg()->domain) ?></th>
+        <th><?php _e("Rollenname", mmg()->domain) ?></th>
+        <th><?php _e("Kann hochladen", mmg()->domain) ?></th>
     </tr>
     </thead>
     <tbody>
@@ -33,5 +33,5 @@ $form->open(array("attributes" => array("class" => "form-horizontal"))); ?>
     </tbody>
 </table>
 <?php wp_nonce_field('mm_settings', '_mmnonce') ?>
-<button type="submit" class="btn btn-primary"><?php _e("Save Changes", mmg()->domain) ?></button>
+<button type="submit" class="btn btn-primary"><?php _e("Änderungen speichern", mmg()->domain) ?></button>
 <?php $form->close() ?>

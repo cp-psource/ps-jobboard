@@ -1,10 +1,12 @@
 <?php
 
 /**
- * Author: DerN3rd
+ * Autor: DerN3rd
  */
 class MM_Conversation_Model extends IG_DB_Model_Ex
 {
+    const LOCK = -1, UNLOCK = 1;
+
     public $table = 'mm_conversation';
 
     /**
@@ -68,6 +70,7 @@ class MM_Conversation_Model extends IG_DB_Model_Ex
                 GROUP BY conversation.id ORDER BY conversation.date_created DESC LIMIT %d,%d
         ";
         $sql = $wpdb->prepare($sql, get_current_user_id(), get_current_blog_id(), get_current_user_id(), $offset, $per_page);
+
         $results = $wpdb->get_results($sql, ARRAY_A);
         $models = $model->fetch_array($results);
         return $models;
@@ -107,6 +110,11 @@ class MM_Conversation_Model extends IG_DB_Model_Ex
         return $status->status == MM_Message_Status_Model::STATUS_ARCHIVE;
     }
 
+    public function is_lock()
+    {
+        return $this->status == self::LOCK;
+    }
+
     private static function upgrade()
     {
         if (!get_option('mm_upgrade_message_status')) {
@@ -142,11 +150,15 @@ class MM_Conversation_Model extends IG_DB_Model_Ex
         }
     }
 
-    public function update_index($id)
+    public function update_index($id, $remove = false)
     {
         $index = explode(',', $this->message_index);
         $index = array_filter($index);
-        $index[] = $id;
+        if ($remove == false) {
+            $index[] = $id;
+        } else {
+            unset($index[array_search($id, $index)]);
+        }
         $this->message_index = implode(',', $index);
 
         //update users

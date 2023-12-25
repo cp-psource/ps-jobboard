@@ -21,7 +21,7 @@
                     <div class="input-group input-group-sm">
                         <input type="text" class="form-control"
                                value="<?php echo mmg()->get('query', '') ?>" name="query"
-                               placeholder="<?php _e("Search", mmg()->domain) ?>">
+                               placeholder="<?php _e("Suche", mmg()->domain) ?>">
                         <button class="btn btn-link" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
@@ -91,17 +91,17 @@
             <div class="col-md-12 no-padding">
                 <?php if ($paged <= 1): ?>
                     <a disabled href="#"
-                       class="btn btn-default btn-sm pull-left"><?php _e("Vorherige", mmg()->domain) ?></a>
+                       class="btn btn-default btn-sm pull-left"><?php _e("Bisherige", mmg()->domain) ?></a>
                 <?php else: ?>
                     <a href="<?php echo esc_url(add_query_arg('mpaged', $paged - 1)) ?>"
-                       class="btn btn-default btn-sm pull-left"><?php _e("Vorherige", mmg()->domain) ?></a>
+                       class="btn btn-default btn-sm pull-left"><?php _e("Bisherige", mmg()->domain) ?></a>
                 <?php endif; ?>
                 <?php if ($paged >= $total_pages): ?>
                     <a disabled href="#"
-                       class="btn btn-default btn-sm pull-right"><?php _e("Nächste", mmg()->domain) ?></a>
+                       class="btn btn-default btn-sm pull-right"><?php _e("Weitere", mmg()->domain) ?></a>
                 <?php else: ?>
                     <a href="<?php echo esc_url(add_query_arg('mpaged', $paged + 1)) ?>"
-                       class="btn btn-default btn-sm pull-right"><?php _e("Nächste", mmg()->domain) ?></a>
+                       class="btn btn-default btn-sm pull-right"><?php _e("Weitere", mmg()->domain) ?></a>
                 <?php endif; ?>
                 <div class="clearfix"></div>
             </div>
@@ -148,7 +148,7 @@
                 var that = $(this);
                 var status = $(this).data('type');
                 if (status == '<?php echo MM_Message_Status_Model::STATUS_DELETE ?>') {
-                    if (confirm('<?php echo esc_js(__("Bist Du sicher?",mmg()->domain)) ?>')) {
+                    if (confirm('<?php echo esc_js(__("Bist du sicher?",mmg()->domain)) ?>')) {
                         $.ajax({
                             type: 'POST',
                             url: '<?php echo admin_url('admin-ajax.php') ?>',
@@ -195,7 +195,7 @@
                 suppressScrollX: true
             });
             //trigger read
-            if ($('.load-conv.active').length > 0) {
+            if ($('.load-conv.active').size() > 0) {
                 $('.load-conv.active').first().trigger('click');
             }
         })

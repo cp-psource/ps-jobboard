@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Author: WPMU DEV
+ * Autor: WMS N@W
  * Name: Broadcast
- * Description: As the administrator send a message to all users at the same time.
+ * Beschreibung: Erstelle Nachrichten vom Administrator und sende sie an alle Benutzer.
  */
 class MM_BroadCast_Messages
 {
@@ -52,7 +52,7 @@ class MM_BroadCast_Messages
     {
         ?>
         <label><input type="checkbox" name="broadcast" id="mmg-broadcast">
-            <?php _e("Send this message to all users", mmg()->domain) ?></label>
+            <?php _e("Sende diese Nachricht an alle Benutzer", mmg()->domain) ?></label>
     <?php
     }
 }

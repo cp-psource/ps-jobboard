@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: hoangngo
+ * Autor: DerN3rd
  */
 class MM_Upgrade_Controller extends IG_Request
 {
@@ -207,7 +207,7 @@ CREATE TABLE `{$wpdb->base_prefix}mm_conversation` (
 
     function admin_menu()
     {
-        add_menu_page(__('Messaging', mmg()->domain), __('Messaging', mmg()->domain), 'manage_options', mmg()->prefix . 'main', array(&$this, 'main'), 'dashicons-email-alt');
+        add_menu_page(__('PS-Messaging', mmg()->domain), __('PS-Messaging', mmg()->domain), 'manage_options', mmg()->prefix . 'main', array(&$this, 'main'), 'dashicons-email-alt');
     }
 
     function main()

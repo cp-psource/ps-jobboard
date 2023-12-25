@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Author: WPMU DEV
- * Name: Block List
- * Description: Allows users to block messages from another user.
+ * Autor: WMS N@W
+ * Name: Blockliste
+ * Beschreibung: Ermöglicht Benutzern das Blockieren von Nachrichten eines anderen Benutzers.
  */
 if (!class_exists('MM_Block_List')) {
     class MM_Block_List extends IG_Request
@@ -99,7 +99,7 @@ if (!class_exists('MM_Block_List')) {
             ?>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <p class="help-block"><?php _e("Block users list, separate by commas", mmg()->domain) ?></p>
+                    <p class="help-block"><?php _e("Benutzer blockieren, durch Kommas getrennt", mmg()->domain) ?></p>
                     <input id="mm-block-list-input" name="mm_user_block" type="text" class="form-control"
                            value="<?php echo $block_list ?>"/>
                 </div>

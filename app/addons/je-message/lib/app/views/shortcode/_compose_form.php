@@ -7,7 +7,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content" id="compose-modal">
                             <div class="modal-header">
-                                <h4 class="modal-title"><?php _e("Compose Message", mmg()->domain) ?></h4>
+                                <h4 class="modal-title"><?php _e("Nachricht verfassen", mmg()->domain) ?></h4>
                             </div>
                             <?php $form = new IG_Active_Form($model);
                             $form->open(array("attributes" => array("class" => "compose-form form-horizontal", "id" => "compose-form"))); ?>
@@ -15,11 +15,11 @@
                                 <div style="margin-bottom: 0"
                                      class="form-group <?php echo $model->has_error("send_to") ? "has-error" : null ?>">
                                     <?php $form->label("send_to", array(
-                                        "text" => __("Send To", mmg()->domain),
+                                        "text" => __("Senden an", mmg()->domain),
                                         "attributes" => array("class" => "control-label col-sm-2 hidden-xs hidden-sm")
                                     )) ?>
                                     <div class="col-md-10 col-sm-12 col-xs-12">
-                                        <?php $form->text("send_to", array("attributes" => array("class" => "form-control", "placeholder" => __("Send to", mmg()->domain)))) ?>
+                                        <?php $form->text("send_to", array("attributes" => array("class" => "form-control", "placeholder" => __("Senden an", mmg()->domain)))) ?>
                                         <?php do_action('mm_compose_form_after_send_to', $form, $model) ?>
                                         <span class="help-block m-b-none error-send_to">
                                         <?php $form->error("send_to") ?>
@@ -31,11 +31,11 @@
                                 <div style="margin-bottom: 0"
                                      class="form-group <?php echo $model->has_error("subject") ? "has-error" : null ?>">
                                     <?php $form->label("subject", array(
-                                        "text" => __("Subject", mmg()->domain),
+                                        "text" => __("Betreff", mmg()->domain),
                                         "attributes" => array("class" => "control-label col-sm-2 hidden-xs hidden-sm")
                                     )) ?>
                                     <div class="col-md-10 col-sm-12 col-xs-12">
-                                        <?php $form->text("subject", array("attributes" => array("class" => "form-control", "placeholder" => __("Subject", mmg()->domain)))) ?>
+                                        <?php $form->text("subject", array("attributes" => array("class" => "form-control", "placeholder" => __("Betreff", mmg()->domain)))) ?>
                                         <?php do_action('mm_compose_form_after_subject', $form, $model) ?>
                                         <span
                                             class="help-block m-b-none error-subject"><?php $form->error("subject") ?></span>
@@ -45,14 +45,14 @@
                                 <div style="margin-bottom: 0"
                                      class="form-group <?php echo $model->has_error("content") ? "has-error" : null ?>">
                                     <?php $form->label("content", array(
-                                        "text" => __("Content", mmg()->domain),
+                                        "text" => __("Inhalt", mmg()->domain),
                                         "attributes" => array("class" => "control-label col-sm-2 hidden-xs hidden-sm")
                                     )) ?>
                                     <div class="col-md-10 col-sm-12 col-xs-12">
                                         <?php $form->text_area("content", array(
                                             "attributes" => array(
                                                 "class" => "form-control mm_wsysiwyg",
-                                                "placeholder" => __("Content", mmg()->domain),
+                                                "placeholder" => __("Inhalt", mmg()->domain),
                                                 "style" => "height:100px",
                                                 "id" => "mm_compose_content"
                                             )
@@ -68,15 +68,15 @@
                                 <input type="hidden" name="action" value="mm_send_message">
                                 <?php if (mmg()->can_upload() == true) {
                                     ig_uploader()->show_upload_control($model, 'attachment', false, array(
-                                        'title' => __("Attach media or other files.", mmg()->domain)
+                                        'title' => __("Hänge Medien oder andere Dateien an.", mmg()->domain)
                                     ));
                                 } ?>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default compose-close"
-                                        data-dismiss="modal"><?php _e("Schliessen", mmg()->domain) ?></button>
+                                        data-dismiss="modal"><?php _e("Schließen", mmg()->domain) ?></button>
                                 <button type="submit"
-                                        class="btn btn-primary compose-submit"><?php _e("Send", mmg()->domain) ?></button>
+                                        class="btn btn-primary compose-submit"><?php _e("Senden", mmg()->domain) ?></button>
                             </div>
                             <?php $form->close(); ?>
                         </div>

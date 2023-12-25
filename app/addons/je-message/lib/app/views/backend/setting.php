@@ -1,7 +1,7 @@
 <div class="wrap">
     <div class="ig-container">
         <div class="mmessage-container">
-            <h2><?php _e('Settings', mmg()->domain) ?></h2>
+            <h2><?php _e('Einstellungen', mmg()->domain) ?></h2>
 
             <div class="row">
                 <div class="col-md-12">
@@ -14,12 +14,12 @@
                         class="nav nav-tabs tabs-left col-md-3 hidden-sm hidden-xs mm_setting_menu">
                         <li class="<?php echo mmg()->get('tab', 'general') == 'general' ? 'active' : null ?>">
                             <a href="<?php echo esc_url(add_query_arg('tab', 'general')) ?>">
-                                <i class="glyphicon glyphicon-wrench"></i> <?php _e("General Settings", mmg()->domain) ?>
+                                <i class="glyphicon glyphicon-wrench"></i> <?php _e("Allgemeine Einstellungen", mmg()->domain) ?>
                             </a>
                         </li>
                         <li class="<?php echo mmg()->get('tab') == 'email' ? 'active' : null ?>">
                             <a href="<?php echo esc_url(add_query_arg('tab', 'email')) ?>">
-                                <i class="glyphicon glyphicon-envelope"></i> <?php _e("Email Settings", mmg()->domain) ?>
+                                <i class="glyphicon glyphicon-envelope"></i> <?php _e("Email Einstellungen", mmg()->domain) ?>
                             </a>
                         </li>
                         <li class="<?php echo mmg()->get('tab') == 'shortcode' ? 'active' : null ?>">
@@ -28,7 +28,7 @@
                         </li>
                         <li class="<?php echo mmg()->get('tab') == 'attachment' ? 'active' : null ?>">
                             <a href="<?php echo esc_url(add_query_arg('tab', 'attachment')) ?>">
-                                <i class="glyphicon glyphicon-paperclip"></i> <?php _e("Attachments", mmg()->domain) ?>
+                                <i class="glyphicon glyphicon-paperclip"></i> <?php _e("Anhänge", mmg()->domain) ?>
                             </a>
                         </li>
                         <?php do_action('mm_setting_menu', $model) ?>

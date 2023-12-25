@@ -84,7 +84,7 @@ $r_id = 'reply_' . uniqid();
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default"
-                                        data-dismiss="modal"><?php _e("Schliessen", mmg()->domain) ?></button>
+                                        data-dismiss="modal"><?php _e("Schließen", mmg()->domain) ?></button>
                                 <button type="button"
                                         class="btn btn-primary reply-submit"><?php _e("Senden", mmg()->domain) ?></button>
                             </div>

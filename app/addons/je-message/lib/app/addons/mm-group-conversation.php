@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Author: WPMU DEV
- * Name: Group Conversation (Beta)
- * Description: Enable include more people to a conversation
+ * Autor: WMS N@W
+ * Name: Gruppengespräch (Beta)
+ * Beschreibung: Aktiviere Gruppenkonversationen und Einladungen, um an einer Gruppenkonversation teilzunehmen.
  */
 class MM_Group_Conversation
 {
@@ -28,7 +28,7 @@ class MM_Group_Conversation
         if ($user->ID == get_current_user_id()) {
             wp_send_json(array(
                 'status' => 'fail',
-                'message' => __("You can't drop your self!", mmg()->domain)
+                'message' => __("Du kannst dich nicht selbst ausschliessen!", mmg()->domain)
             ));
         } else {
             $model = MM_Conversation_Model::model()->find(mmg()->post('conversation_id'));
@@ -45,7 +45,7 @@ class MM_Group_Conversation
                 MM_Message_Status_Model::model()->status($model->id, -3, $user->ID);
                 wp_send_json(array(
                     'status' => 'success',
-                    'message' => sprintf(__("You has dropped user %s out of this conversation.", mmg()->domain), $user->user_login)
+                    'message' => sprintf(__("Du hast Benutzer %s aus dieser Konversation ausgeschlossen.", mmg()->domain), $user->user_login)
                 ));
             }
         }
@@ -100,7 +100,7 @@ class MM_Group_Conversation
 
             <div class="col-md-10 col-sm-12 col-xs-12">
                 <input type="text" name="cc" id="mmg-cc-bar-input" class="form-control cc-input"
-                       placeholder="<?php esc_attr_e("Cc users", mmg()->domain) ?>">
+                       placeholder="<?php esc_attr_e("Cc Benutzer", mmg()->domain) ?>">
             </div>
             <div class="clearfix"></div>
         </div>
@@ -145,7 +145,7 @@ class MM_Group_Conversation
 
             <div class="col-md-10 col-sm-12 col-xs-12">
                 <input type="text" name="cc" id="mmg-cc-input" class="form-control cc-input"
-                       placeholder="<?php esc_attr_e("Cc users", mmg()->domain) ?>">
+                       placeholder="<?php esc_attr_e("Cc Benutzer", mmg()->domain) ?>">
             </div>
             <div class="clearfix"></div>
         </div>
@@ -246,7 +246,7 @@ class MM_Group_Conversation
         ?>
         <div class="form-group">
             <label class="col-md-12 hidden-xs hidden-sm">
-                <?php _e("Cc Users:", mmg()->domain) ?>
+                <?php _e("Cc Benutzer:", mmg()->domain) ?>
             </label>
 
             <div class="col-md-12 col-xs-12 col-sm-12">
@@ -289,7 +289,7 @@ class MM_Group_Conversation
 
     function drop_user_out()
     {
-        $text = esc_js(__("Are you sure?", mmg()->domain));
+        $text = esc_js(__("Bist Du sicher?", mmg()->domain));
         ?>
         <script type="text/javascript">
             jQuery(document).ready(function ($) {

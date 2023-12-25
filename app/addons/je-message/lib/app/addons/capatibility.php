@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Author: WPMU DEV
- * Name: Capability
- * Description: Limit sending capabilities to specific WordPress roles.
+ * Autor: WMS N@W
+ * Name: Berechtigungen
+ * Beschreibung: Beschränke die Sendefunktionen auf bestimmte WordPress-Rollen.
  */
 if (!class_exists('MM_User_Capability')) {
     class MM_User_Capability extends IG_Request
@@ -106,7 +106,7 @@ if (!class_exists('MM_User_Capability')) {
             if (isset($_POST['mm_user_cap'])) {
                 $data = mmg()->post('mm_role');
                 update_option('mm_user_cap', $data);
-                $this->set_flash('mm_user_cap', __("Settings saved!", mmg()->domain));
+                $this->set_flash('mm_user_cap', __("Einstellungen gespeichert!", mmg()->domain));
                 $this->redirect($_SERVER['REQUEST_URI']);
             }
         }
@@ -126,7 +126,7 @@ if (!class_exists('MM_User_Capability')) {
                 <div class="col-md-12">
                     <div class="tab-pane active">
                         <div class="page-header">
-                            <h3><?php _e("Capability Settings", mmg()->domain) ?></h3>
+                            <h3><?php _e("Fähigkeitseinstellungen", mmg()->domain) ?></h3>
                         </div>
                         <?php if ($this->has_flash('mm_user_cap')): ?>
                             <div class="alert alert-success">
@@ -164,7 +164,7 @@ if (!class_exists('MM_User_Capability')) {
                                                                                    type="checkbox"
                                                                                    checked="checked"
                                                                                    value="<?php echo $k ?>">
-                                                                            <?php _e(sprintf("User from this role can send to <strong>%s</strong>", $r['name']), mmg()->domain) ?>
+                                                                            <?php _e(sprintf("Benutzer aus dieser Rolle können an <strong>%s</strong> senden", $r['name']), mmg()->domain) ?>
                                                                         </label>
                                                                     </div>
                                                                 <?php else: ?>
@@ -174,7 +174,7 @@ if (!class_exists('MM_User_Capability')) {
                                                                                    type="checkbox"
                                                                                 <?php echo checked($data[$key][array_search($k, $data[$key])], $k) ?>
                                                                                    value="<?php echo $k ?>">
-                                                                            <?php _e(sprintf("User from this role can send to <strong>%s</strong>", $r['name']), mmg()->domain) ?>
+                                                                            <?php _e(sprintf("Benutzer dieser Rolle können an <strong>%s</strong> senden", $r['name']), mmg()->domain) ?>
                                                                         </label>
                                                                     </div>
                                                                 <?php endif; ?>
@@ -192,7 +192,7 @@ if (!class_exists('MM_User_Capability')) {
                                         <div class="row">
                                             <div class="col-md-9 col-md-offset-3">
                                                 <button name="mm_user_cap" type="submit"
-                                                        class="btn btn-primary"><?php _e("Save Changes", mmg()->domain) ?></button>
+                                                        class="btn btn-primary"><?php _e("Änderungen speichern", mmg()->domain) ?></button>
                                             </div>
                                         </div>
                                     </div>
@@ -227,7 +227,7 @@ if (!class_exists('MM_User_Capability')) {
             ?>
             <li class="<?php echo mmg()->get('tab') == 'cap' ? 'active' : null ?>">
                 <a href="<?php echo esc_url(add_query_arg('tab', 'cap')) ?>">
-                    <i class="fa fa-binoculars"></i> <?php _e("Capability Settings", mmg()->domain) ?></a>
+                    <i class="fa fa-binoculars"></i> <?php _e("Fähigkeitseinstellungen", mmg()->domain) ?></a>
             </li>
         <?php
         }

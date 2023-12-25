@@ -4,7 +4,7 @@ if (!class_exists('WP_List_Table')) {
 }
 
 /**
- * Author: hoangngo
+ * Author: DerN3rd
  */
 class MM_Messages_Table extends WP_List_Table
 {
@@ -32,9 +32,9 @@ class MM_Messages_Table extends WP_List_Table
     function get_columns()
     {
         return $columns = array(
-            'col_name' => __('Last Message', mmg()->domain),
-            'col_users' => __('Users', mmg()->domain),
-            'col_count' => __("Total Messages", mmg()->domain),
+            'col_name' => __('Letzte Nachricht', 'psjb'),
+            'col_users' => __('Benutzer', 'psjb'),
+            'col_count' => __("Nachrichten insgesamt", 'psjb'),
         );
     }
 
@@ -129,7 +129,7 @@ class MM_Messages_Table extends WP_List_Table
         ?>
         <form method="get" action="<?php echo admin_url('admin.php') ?>">
             <input type="hidden" name="page" value="mm_main">
-            <?php $this->search_box(__("Search", mmg()->domain), 'mm_conv_search'); ?>
+            <?php $this->search_box(__("Suche", 'psjb'), 'mm_conv_search'); ?>
         </form>
         <div class="clearfix" style="height:20px"></div>
 

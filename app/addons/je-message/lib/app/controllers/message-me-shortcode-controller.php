@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: hoangngo
+ * Autor: DerN3rd
  */
 class Message_Me_Shortcode_Controller extends IG_Request
 {

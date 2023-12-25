@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Author: WMS N@W
+ * Autor: WMS N@W
  * Name: WYISWYG
- * Description: Fügt dem Message Composer einen WYSIWYG-Editor hinzu.
+ * Beschreibung: Fügt dem Nachrichtenkomponisten einen WYSIWYG-Editor hinzu.
  */
 if (!class_exists('MM_WYSIWYG')) {
     class MM_WYSIWYG extends IG_Request
@@ -19,63 +19,63 @@ if (!class_exists('MM_WYSIWYG')) {
         function text()
         {
             $string = array(
-                'Fett' => __("Fett", mmg()->domain),
-                'Kursiv' => __("Kursiv", mmg()->domain),
-                'Underline' => __("Unterstrich", mmg()->domain),
+                'Bold' => __("Fett", mmg()->domain),
+                'Italic' => __("Kursiv", mmg()->domain),
+                'Underline' => __("Unterstreichen", mmg()->domain),
                 'Strikethrough' => __("Durchgestrichen", mmg()->domain),
-                'Subscript' => __("Tiefergestellt", mmg()->domain),
+                'Subscript' => __("Subscript", mmg()->domain),
                 'Superscript' => __("Hochgestellt", mmg()->domain),
                 'Align left' => __("Linksbündig", mmg()->domain),
                 'Center' => __("Zentriert", mmg()->domain),
                 'Align right' => __("Rechtsbündig", mmg()->domain),
-                'Justify' => __("Justieren", mmg()->domain),
-                'Font Name' => __("Schriftartenname", mmg()->domain),
+                'Justify' => __("Justify", mmg()->domain),
+                'Font Name' => __("Schriftart", mmg()->domain),
                 'Font Size' => __("Schriftgröße", mmg()->domain),
                 'Font Color' => __("Schriftfarbe", mmg()->domain),
                 'Remove Formatting' => __("Formatierung entfernen", mmg()->domain),
-                'Cut' => __("Schnitt", mmg()->domain),
-                'Your browser does not allow the cut command. Please use the keyboard shortcut Ctrl/Cmd-X' => __("Dein Browser lässt den Ausschneidebefehl nicht zu. Bitte verwende die Tastenkombination Strg/Cmd-X", mmg()->domain),
+                'Cut' => __("Ausschneiden", mmg()->domain),
+                'Your browser does not allow the cut command. Please use the keyboard shortcut Ctrl/Cmd-X' => __("Dein Browser lässt den Befehl Ausschneiden nicht zu. Bitte benutze die Tastenkombination Strg / Cmd-X", mmg()->domain),
                 'Copy' => __("Copy", mmg()->domain),
-                'Your browser does not allow the copy command. Please use the keyboard shortcut Ctrl/Cmd-C' => __("Dein Browser lässt den Kopierbefehl nicht zu. Bitte verwende die Tastenkombination Strg/Cmd-C", mmg()->domain),
+                'Your browser does not allow the copy command. Please use the keyboard shortcut Ctrl/Cmd-C' => __("Dein Browser lässt den Kopierbefehl nicht zu. Bitte verwenden Sie die Tastenkombination Strg / Cmd-C", mmg()->domain),
                 'Paste' => __("Paste", mmg()->domain),
-                'Your browser does not allow the paste command. Please use the keyboard shortcut Ctrl/Cmd-V' => __("Dein Browser lässt den Einfügebefehl nicht zu. Bitte verwende die Tastenkombination Strg/Cmd-V", mmg()->domain),
+                'Your browser does not allow the paste command. Please use the keyboard shortcut Ctrl/Cmd-V' => __("Dein Browser lässt den Einfügebefehl nicht zu. Bitte benutze die Tastenkombination Strg / Cmd-V", mmg()->domain),
                 'Paste your text inside the following box' => __("Füge Deinen Text in das folgende Feld ein", mmg()->domain),
                 'Paste Text' => __("Text einfügen", mmg()->domain),
                 'Bullet list' => __("Aufzählung", mmg()->domain),
                 'Numbered list' => __("Nummerierte Liste", mmg()->domain),
-                'Undo' => __("Rückgängig", mmg()->domain),
+                'Undo' => __("Rückgängig machen", mmg()->domain),
                 'Redo' => __("Wiederholen", mmg()->domain),
                 'Rows' => __("Reihen", mmg()->domain),
-                'Cols' => __("Spalten", mmg()->domain),
-                'Insert a table' => __("Tabelle einfügen", mmg()->domain),
-                'Insert a horizontal rule' => __("Füge horizontale Linie ein", mmg()->domain),
+                'Cols' => __("Colspan", mmg()->domain),
+                'Insert a table' => __("Füge eine Tabelle ein", mmg()->domain),
+                'Insert a horizontal rule' => __("Füge eine horizontale Reihe ein", mmg()->domain),
                 'Code' => __("Code", mmg()->domain),
                 'Width (optional)' => __("Breite (optional)", mmg()->domain),
                 'Height (optional)' => __("Höhe (optional)", mmg()->domain),
-                'Insert an image' => __("Füge ein Bild ein", mmg()->domain),
+                'Insert an image' => __("BIld einfügen", mmg()->domain),
                 'E-mail' => __("E-Mail", mmg()->domain),
-                'Insert an email' => __("E-Mail einfügen", mmg()->domain),
+                'Insert an email' => __("Füge eine E-Mail ein", mmg()->domain),
                 'URL' => __("URL", mmg()->domain),
-                'Link einfügen' => __("Link einfügen", mmg()->domain),
-                'Unlink' => __("Link entfernen", mmg()->domain),
+                'Insert a link' => __("Füge einen Link ein", mmg()->domain),
+                'Unlink' => __("Verknüpfung aufheben", mmg()->domain),
                 'More' => __("Mehr", mmg()->domain),
-                'Insert an emoticon' => __("Füge Emoticon ein", mmg()->domain),
+                'Insert an emoticon' => __("Füge ein Emoticon ein", mmg()->domain),
                 'Video URL' => __("Video URL", mmg()->domain),
-                'Einfügen' => __("Einfügen", mmg()->domain),
+                'Insert' => __("Einfügen", mmg()->domain),
                 'Insert a YouTube video' => __("Füge ein YouTube-Video ein", mmg()->domain),
                 'Insert current date' => __("Aktuelles Datum einfügen", mmg()->domain),
-                'Insert current time' => __("Aktuelle Uhrzeit einfügen", mmg()->domain),
+                'Insert current time' => __("Aktuelle Zeit einfügen", mmg()->domain),
                 'Print' => __("Drucken", mmg()->domain),
                 'View source' => __("Quelltext anzeigen", mmg()->domain),
-                'Description (optional)' => __("Beschreibung (optional)", mmg()->domain),
+                'Beschreibung (optional)' => __("Beschreibung (optional)", mmg()->domain),
                 'Enter the image URL' => __("Gib die Bild-URL ein", mmg()->domain),
                 'Enter the e-mail address' => __("Gib die E-Mail-Adresse ein", mmg()->domain),
                 'Enter the displayed text' => __("Gib den angezeigten Text ein", mmg()->domain),
                 'Enter URL' => __("URL eingeben", mmg()->domain),
-                'Enter the YouTube video URL or ID' => __("Gib die URL oder ID des YouTube-Videos ein", mmg()->domain),
-                'Insert a Quote' => __("Zitat einfügen", mmg()->domain),
+                'Enter the YouTube video URL or ID' => __("Gib die YouTube-Video-URL oder -ID ein", mmg()->domain),
+                'Insert a Quote' => __("Füge ein Angebot ein", mmg()->domain),
                 'Invalid YouTube video' => __("Ungültiges YouTube-Video", mmg()->domain),
-                'dateFormat' => __("dateFormat", mmg()->domain),
+                'dateFormat' => __("Datumsformat", mmg()->domain),
             );
 
             return $string;
@@ -94,7 +94,7 @@ if (!class_exists('MM_WYSIWYG')) {
                 <script type="text/javascript">
                     jQuery(document).ready(function ($) {
                         function load_editor() {
-                            if ($('.mm_wsysiwyg').length > 0) {
+                            if ($('.mm_wsysiwyg').size() > 0) {
                                 $('.mm_wsysiwyg').sceditor({
                                     plugins: "bbcode",
                                     autoUpdate: true,
@@ -108,7 +108,7 @@ if (!class_exists('MM_WYSIWYG')) {
                                     emoticonsEnabled: true,
                                     toolbar: "bold,italic,underline,strike|left,center,right,justify",
                                     emoticonsRoot: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/'?>',
-                                    style: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/minified/themes/default.min.css'?>',
+                                    style: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/minified/jquery.sceditor.default.min.css'?>',
                                     locale: '<?php echo $locale ?>'
                                 });
                             }
@@ -126,7 +126,7 @@ if (!class_exists('MM_WYSIWYG')) {
                 <script type="text/javascript">
                     jQuery(document).ready(function ($) {
                         function load_editor() {
-                            if ($('.mm_wsysiwyg').length > 0) {
+                            if ($('.mm_wsysiwyg').size() > 0) {
                                 var editors = $('.mm_wsysiwyg').sceditor({
                                     plugins: "xhtml",
                                     autoUpdate: true,
@@ -139,7 +139,7 @@ if (!class_exists('MM_WYSIWYG')) {
                                     emoticonsEnabled: true,
                                     toolbar: "bold,italic,underline,strike|left,center,right,justify|font,size,color,removeformat|cut,copy,paste,pastetext|bulletlist,orderedlist,indent,outdent|link,unlink|date,time|emoticon",
                                     emoticonsRoot: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/'?>',
-                                    style: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/minified/themes/default.min.css'?>',
+                                    style: '<?php echo mmg()->plugin_url . 'app/addons/wysiwyg/sceditor/minified/jquery.sceditor.default.min.css'?>',
                                     locale: '<?php echo $locale ?>'
                                 });
                             }

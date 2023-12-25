@@ -34,7 +34,7 @@ if ($setting->user_receipt == false) {
                             <input type="hidden" name="receipt" value="0">
                             <input <?php echo checked('1', $user_setting['enable_receipt']) ?>
                                 type="checkbox" name="receipt" value="1"
-                                class="enable_receipt"> <?php _e("Schicke eine E-Mail, wenn meine gesendeten Nachrichten gelesen werden", mmg()->domain) ?>
+                                class="enable_receipt"> <?php _e("Schicke mir eine E-Mail, wenn meine gesendeten Nachrichten gelesen werden", mmg()->domain) ?>
                             <span
                                 class="help-block"><?php _e("Eine E-Mail wird an Dich gesendet, wenn ein Benutzer Deine Nachricht liest. Diese Funktion funktioniert nicht, wenn er die Nachverfolgung in seinem Konto deaktiviert hat.", mmg()->domain) ?></span>
                         </label>
@@ -44,9 +44,9 @@ if ($setting->user_receipt == false) {
                             <input type="hidden" name="prevent" value="0">
                             <input <?php echo checked('1', $user_setting['prevent_receipt']) ?>
                                 type="checkbox" name="prevent" value="1"
-                                class="prevent_receipt"> <?php _e("Verhindere dass andere meine Nachricht verfolgen", mmg()->domain) ?>
+                                class="prevent_receipt"> <?php _e("Verhindern dass andere meine Nachricht verfolgen", mmg()->domain) ?>
                             <span
-                                class="help-block"><?php _e("Wenn Du eine Nachricht öffnest, wird keine E-Mail an den Absender zurückgesendet, um ihn darüber zu informieren, dass Du die Nachricht gelesen hast.", mmg()->domain) ?></span>
+                                class="help-block"><?php _e("Wenn Du eine Nachricht öffnest, wird keine E-Mail an den Absender zurückgesendet, um ihn darüber zu informieren, dass Du die Nachricht gelesen haben.", mmg()->domain) ?></span>
                         </label>
                     </div>
                 </div>

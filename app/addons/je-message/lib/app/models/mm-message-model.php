@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: DerN3rd
+ * Autor: DerN3rd
  */
 class MM_Message_Model extends IG_Post_Model
 {
@@ -22,7 +22,6 @@ class MM_Message_Model extends IG_Post_Model
     public $attachment;
 
     public $conversation_id;
-
 
     protected $mapped = array(
         'id' => 'ID',

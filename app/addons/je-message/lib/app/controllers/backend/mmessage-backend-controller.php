@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: DerN3rd
+ * Autor: DerN3rd
  */
 class MMessage_Backend_Controller extends IG_Request
 {
@@ -19,10 +19,8 @@ class MMessage_Backend_Controller extends IG_Request
 
     function footer_scripts()
     {
-        $model = new MM_Setting_Model();
-        $model->load();
-        if( ( int ) $model->inbox_page < 1 ) {
-        $pointer_content = "<p>" . __("Please visit settings > messaging to choose your inbox page and complete setup", mmg()->domain) . "</p>";
+		//deaktiviert, hängt sonst und geht nimmer weg
+        $pointer_content = "<p>" . __("Bitte besuche Einstellungen> Messaging, um Deine Posteingangsseite auszuwählen und die Einrichtung abzuschließen", mmg()->domain) . "</p>";
         ?>
         <script type="text/javascript">
             //<![CDATA[
@@ -46,7 +44,6 @@ class MMessage_Backend_Controller extends IG_Request
             //]]>
         </script>
     <?php
-        }
     }
 
     function scripts()
@@ -64,10 +61,10 @@ class MMessage_Backend_Controller extends IG_Request
         $id = mmg()->post('id');
         $meta = get_file_data($id, array(
             'Name' => 'Name',
-            'Author' => 'Author',
-            'Description' => 'Description',
-            'AuthorURI' => 'Author URI',
-            'Network' => 'Network'
+            'Autor' => 'Autor',
+            'Beschreibung' => 'Beschreibung',
+            'AutorURI' => 'Autor URI',
+            'Network' => 'Netzwerk'
         ), 'component');
 
         if (!in_array($id, $addons)) {
@@ -76,8 +73,8 @@ class MMessage_Backend_Controller extends IG_Request
             $setting->plugins = $addons;
             $setting->save();
             wp_send_json(array(
-                'noty' => __("The add on <strong>{$meta['Name']}</strong> activated", mmg()->domain),
-                'text' => __("Deactivate", mmg()->domain)
+                'noty' => __("Die Erweiterung <strong>{$meta['Name']}</strong> aktiviert", mmg()->domain),
+                'text' => __("Deaktivieren", mmg()->domain)
             ));
             exit;
         } else {
@@ -85,7 +82,7 @@ class MMessage_Backend_Controller extends IG_Request
             $setting->plugins = $addons;
             $setting->save();
             wp_send_json(array(
-                'noty' => __("The add on <strong>{$meta['Name']}</strong> deactivate", mmg()->domain),
+                'noty' => __("Die Erweiterung <strong>{$meta['Name']}</strong> deaktiviert", mmg()->domain),
                 'text' => __("Aktivieren", mmg()->domain)
             ));
             exit;
@@ -95,12 +92,13 @@ class MMessage_Backend_Controller extends IG_Request
     function admin_menu()
     {
         add_menu_page(__('Messaging', mmg()->domain), __('Messaging', mmg()->domain), 'manage_options', mmg()->prefix . 'main', array(&$this, 'main'), 'dashicons-email-alt');
-        add_submenu_page(null, __('View Messages', mmg()->domain), __('View Messages', mmg()->domain), 'manage_options', mmg()->prefix . 'view', array(&$this, 'view'));
-        add_submenu_page(mmg()->prefix . 'main', __('Settings', mmg()->domain), __('Settings', mmg()->domain), 'manage_options', mmg()->prefix . 'setting', array(&$this, 'setting'));
+        add_submenu_page(null, __('Nachrichten anzeigen', mmg()->domain), __('Nachrichten anzeigen', mmg()->domain), 'manage_options', mmg()->prefix . 'view', array(&$this, 'view'));
+        add_submenu_page(mmg()->prefix . 'main', __('Einstellungen', mmg()->domain), __('Einstellungen', mmg()->domain), 'manage_options', mmg()->prefix . 'setting', array(&$this, 'setting'));
     }
 
     public function main()
     {
+        wp_enqueue_style('mm_style_admin');
         include mmg()->plugin_path . 'app/components/mm-messages-table.php';
         $this->render('backend/main');
     }
@@ -116,7 +114,7 @@ class MMessage_Backend_Controller extends IG_Request
             $model->load();
             $model->import($_POST['MM_Setting_Model']);
             $model->save();
-            $this->set_flash('setting_save', __("Your settings have been successfully updated.", mmg()->domain));
+            $this->set_flash('setting_save', __("Einstellungen wurden erfolgreich aktualisiert.", mmg()->domain));
             wp_redirect($_SERVER['REQUEST_URI']);
             exit;
         }
@@ -124,6 +122,8 @@ class MMessage_Backend_Controller extends IG_Request
 
     function view()
     {
+        wp_enqueue_style('mm_style_admin');
+        wp_enqueue_script('ig-packed');
         $id = mmg()->get('id', 0);
         $model = MM_Conversation_Model::model()->find($id);
         if (is_object($model)) {
@@ -131,7 +131,7 @@ class MMessage_Backend_Controller extends IG_Request
                 'model' => $model
             ));
         } else {
-            echo __("Conversation not found!", mmg()->domain);
+            echo __("Gespräch nicht gefunden!", mmg()->domain);
         }
     }
 

@@ -24,7 +24,7 @@
                         </div>
                         <div class="modal-body text-left">
                             <div class="alert alert-success hide mm-notice">
-                                <?php _e("Your message has been sent", mmg()->domain) ?>
+                                <?php _e("Deine Nachricht wurde gesendet", mmg()->domain) ?>
                             </div>
                             <div class="message-me-has-subject hide">
                                 <?php $form->hidden('subject') ?>
@@ -63,7 +63,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button"
-                                    class="btn btn-default compose-close"><?php _e("Schliessen", mmg()->domain) ?></button>
+                                    class="btn btn-default compose-close"><?php _e("Close", mmg()->domain) ?></button>
                             <button type="submit"
                                     class="btn btn-primary reply-submit"><?php _e("Send", mmg()->domain) ?></button>
                         </div>

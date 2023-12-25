@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Author: WPMU DEV
- * Name: Notification
- * Description: Display a visual notification for users when a new message is received.
+ * Autor: WMS N@W
+ * Name: Benachrichtigungen
+ * Beschreibung: Zeige eine visuelle Benachrichtigung für Benutzer an, wenn eine neue Nachricht empfangen wird.
  */
 if (!class_exists('MM_Push_Notification')) {
     class MM_Push_Notification extends IG_Request
@@ -83,7 +83,7 @@ if (!class_exists('MM_Push_Notification')) {
                                     success: function (data) {
                                         if (data != null && data.count != undefined) {
                                             $('.mm-admin-bar').find('span').text(data.count);
-                                            if ($('.unread-count').length > 0) {
+                                            if ($('.unread-count').size() > 0) {
                                                 $('.unread-count').attr('title', data.count + ' ' + $('.unread-count').data('text'));
                                             }
                                             jQuery.each(data.messages, function (i, v) {
@@ -107,7 +107,7 @@ if (!class_exists('MM_Push_Notification')) {
                                                         },
                                                         {
                                                             addClass: 'btn btn-danger btn-xs',
-                                                            text: 'Schliessen', onClick: function ($noty) {
+                                                            text: 'Close', onClick: function ($noty) {
                                                             $noty.close();
                                                             }
                                                         }

@@ -1,17 +1,17 @@
 <?php
 /*
-Plugin Name: Private Messaging
-Plugin URI: https://n3rds.work
-Description: Private user-to-user communication for placing bids, sharing project specs and hidden internal communication. Complete with front end integration, guarded contact information and protected file sharing.
+Plugin Name: PS-Messaging
+Plugin URI: https://n3rds.work/piestingtal-source-project/ps-messaging/
+Description: Private Benutzer-zu-Benutzer-Kommunikation zum Abgeben von Geboten, zum Teilen von Projektspezifikationen und zur versteckten internen Kommunikation. Komplett mit Front-End-Integration, geschützten Kontaktinformationen und geschützter Dateifreigabe.
 Author: WMS N@W
-Version: 1.0.1.2
+Version: 1.1.1
 Author URI: https://n3rds.work
-Text Domain: psjb
+Text Domain: private_messaging
 */
 
 /*
-Copyright 2014-2023 WMS N@W (https://n3rds.work)
-Author – DerN3rd
+Copyright 2020-2024 WMS N@W (https://n3rds.work)
+Autor – DerN3rd (WMS N@W)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License (Version 2 - GPLv2) as published by
@@ -26,7 +26,9 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 */
+
 if (!class_exists('MMessaging')) {
+    require_once(dirname(__FILE__) . '/framework/loader.php');
 
     class MMessaging
     {
@@ -35,8 +37,8 @@ if (!class_exists('MMessaging')) {
         public $domain;
         public $prefix;
 
-        public $version = "1.0.1.2";
-        public $db_version = '1.0';
+        public $version = "1.1.1";
+        public $db_version = '1.1';
 
         public $global = array();
 
@@ -59,7 +61,6 @@ if (!class_exists('MMessaging')) {
             add_action('admin_enqueue_scripts', array(&$this, 'scripts'), 20);
 
             if ($this->ready_to_use()) {
-                //$this->dispatch();
                 add_action('init', array(&$this, 'dispatch'));
             } else {
                 new MM_Upgrade_Controller();
@@ -106,7 +107,7 @@ if (!class_exists('MMessaging')) {
                                 $jses = array_merge($jses, array('popoverasync', 'jquery-frame-transport'));
                             }
                             if (wp_script_is('mm_sceditor', 'registered') && wp_script_is('mm_sceditor_xhtml', 'registered')) {
-                                $jses = array_merge($jses, array('mm_sceditor', 'mm_sceditor_translate', 'mm_sceditor_xhtml'));
+                                $jses = array_merge($jses, array('mm_sceditor','mm_sceditor_translate', 'mm_sceditor_xhtml'));
                             }
 
                             $this->compress_assets($csses, $jses, $runtime_path);
@@ -131,12 +132,11 @@ if (!class_exists('MMessaging')) {
                             }
                         }
                     }
-                    break;
+                break;
             }
         }
 
-        function can_upload()
-        {
+        function can_upload(){
             if (!is_user_logged_in()) {
                 return false;
             }
@@ -158,8 +158,7 @@ if (!class_exists('MMessaging')) {
             return false;
         }
 
-        function compress_assets( $write_path, $css = array(), $js = array() )
-        {
+        function compress_assets($css = array(), $js = array(), $write_path){
             if (defined('DOING_AJAX') && DOING_AJAX)
                 return;
 
@@ -228,13 +227,13 @@ if (!class_exists('MMessaging')) {
 
         }
 
-        function compress_css($path)
-        {
+        function compress_css($path){
 
         }
 
-        function can_compress()
-        {
+        function can_compress() {
+            return false;
+
             $runtime_path = $this->plugin_path . 'framework/runtime';
             if (!is_dir($runtime_path)) {
                 //try to create
@@ -255,6 +254,7 @@ if (!class_exists('MMessaging')) {
         function scripts()
         {
             wp_register_style('mm_style', $this->plugin_url . 'assets/main.min.css', array('ig-packed'), $this->version);
+            wp_register_style('mm_style_admin', $this->plugin_url . 'assets/admin.css', array('ig-packed'), $this->version);
             wp_register_style('mm_scroll', $this->plugin_url . 'assets/perfect-scrollbar.min.css', array(), $this->version);
             wp_register_script('mm_scroll', $this->plugin_url . 'assets/perfect-scrollbar.min.js', array('jquery'), $this->version);
 
@@ -276,8 +276,10 @@ if (!class_exists('MMessaging')) {
             } else {
                 $front = new MM_Frontend();
             }
+            //include components we need to use
+            include($this->plugin_path . 'app/components/ig-uploader.php');
             //init uploader controller, if user can not upload, we only let it display attachment files
-            ig_uploader()->init_uploader($this->can_upload());
+            ig_uploader()->init_uploader($this->can_upload(), $this->domain);
 
             include $this->plugin_path . 'app/components/mm-addon-table.php';
             //load add on
@@ -524,10 +526,10 @@ CREATE TABLE IF NOT EXISTS `{$wpdb->base_prefix}mm_conversation` (
                 if (file_exists($com)) {
                     $meta = get_file_data($com, array(
                         'Name' => 'Name',
-                        'Author' => 'Author',
-                        'Description' => 'Description',
-                        'AuthorURI' => 'Author URI',
-                        'Network' => 'Network'
+                        'Autor' => 'Autor',
+                        'Beschreibung' => 'Beschreibung',
+                        'AutorURI' => 'Autor URI',
+                        'Network' => 'Netzwerk'
                     ), 'component');
 
                     if (strlen(trim($meta['Name'])) > 0) {
@@ -598,6 +600,7 @@ CREATE TABLE IF NOT EXISTS `{$wpdb->base_prefix}mm_conversation` (
             return apply_filters('mm_query_post_' . $key, $value);
         }
     }
+
 
     function mmg()
     {

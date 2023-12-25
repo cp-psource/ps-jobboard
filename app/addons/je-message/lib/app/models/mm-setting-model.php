@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: DerN3rd
+ * Autor: DerN3rd
  */
 class MM_Setting_Model extends IG_Option_Model
 {
@@ -18,7 +18,7 @@ class MM_Setting_Model extends IG_Option_Model
 
     public $per_page = 10;
 
-    public $signup_text = "Sign up to become a registered member of the site";
+    public $signup_text = "Melde Dich an, um ein registriertes Mitglied der Webseite zu werden";
 
     public $plugins;
 
@@ -28,17 +28,17 @@ class MM_Setting_Model extends IG_Option_Model
 
     public function __construct()
     {
-        $this->noti_subject = "You've received a new message from FROM_NAME on SITE_NAME";
-        $this->noti_content = "FROM_NAME has sent you a message on SITE_NAME<br/><br/>
+        $this->noti_subject = "Du hast eine neue Nachricht von FROM_NAME auf SITE_NAME erhalten";
+        $this->noti_content = "FROM_NAME hat Dir eine Nachricht auf SITE_NAME gesendet<br/><br/>
 
         FROM_MESSAGE
         <br/><br/>
-        Check your messages here <a href='POST_LINK'>POST_LINK</a>
+        Überprüfe Deine Nachrichten hier <a href='POST_LINK'>POST_LINK</a>
         ";
 
-        $this->receipt_content = "Dear FROM_NAME <br/><br/>
-        The message you sent to TO_NAME on SITE_NAME has been read.";
-        $this->receipt_subject = "The message you sent to TO_NAME on SITE_NAME has been read.";
+        $this->receipt_content = "Lieber FROM_NAME <br/><br/>
+        Die Nachricht, die Du auf SITE_NAME an TO_NAME gesendet hast, wurde gelesen.";
+        $this->receipt_subject = "SITE_NAME: Die Nachricht an TO_NAME, wurde gelesen.";
         parent::__construct();
     }
 }

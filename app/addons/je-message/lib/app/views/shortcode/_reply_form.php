@@ -17,7 +17,7 @@ if (!isset($message)) {
                     <?php $form = new IG_Active_Form($model);
                     ?>
                     <div class="modal-header">
-                        <h4 class="modal-title"><?php _e("Antwort", mmg()->domain) ?></h4>
+                        <h4 class="modal-title"><?php _e("Antworten", mmg()->domain) ?></h4>
                     </div>
                     <?php $form->open(array(
                         "attributes" => array(
@@ -59,7 +59,7 @@ if (!isset($message)) {
                     </div>
                     <div class="modal-footer">
                         <button type="button"
-                                class="btn btn-default compose-close"><?php _e("Schliessen", mmg()->domain) ?></button>
+                                class="btn btn-default compose-close"><?php _e("Schließen", mmg()->domain) ?></button>
                         <button type="submit"
                                 class="btn btn-primary reply-submit"><?php _e("Senden", mmg()->domain) ?></button>
                     </div>
