@@ -43,7 +43,7 @@
     // The actual plugin constructor
     function WebuiPopover(element, options) {
         this.$element = $(element);
-        if ($.type(options.delay) === 'string' || $.type(options.delay) === 'number') {
+        if (typeof options.delay === 'string' || typeof options.delay === 'number') {
             options.delay = {show: null, hide: options.delay}; // bc break fix
         }
         this.options = $.extend({}, defaults, options);

@@ -21,7 +21,7 @@ Es hat alles, was Du brauchst, um Deine Fähigkeiten zu zeigen. Teile einen Avat
 Wähle die perfekte Person von Hand aus, basierend auf Erfahrung, Portfolio und Empfehlungen anderer.
 
 Aktiviere Erweiterungen 
-Und erweitere die Möglichkeiten von PS Jobboard um weitere Funktionen, so kannst Du zum Beispiel über die PSeCommerce Schnittstelle Guthabenpakete anbieten um Dein Jobboard zu monetarisieren.
+Und erweitere die Möglichkeiten von PS Jobboard um weitere Funktionen, so kannst Du zum Beispiel über die MarketPress Schnittstelle Guthabenpakete anbieten um Dein Jobboard zu monetarisieren.
 
 == ChangeLog ==
 

@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Name: PSeCommerce integration
- * Description: PSeCommerce in PS Jobboard integrieren, PSeCommerce erforderlich
+ * Name: MarketPress integration
+ * Description: MarketPress in PS Jobboard integrieren, MarketPress erforderlich
  * Author: WMS N@W
- * Required: psecommerce/psecommerce.php
+ * Required: marketpress/marketpress.php
  */
-class JE_PSeCommerce
+class JE_MarketPress
 {
     public function __construct()
     {
         global $mp;
-        if (is_object($mp) && $mp instanceof PSeCommerce) {
+        if (is_object($mp) && $mp instanceof MarketPress) {
             include_once(je()->plugin_path . 'app/components/ig-wallet.php');
             include_once(je()->plugin_path . 'app/components/je-credit-rules.php');
         } else {
@@ -33,13 +33,13 @@ class JE_PSeCommerce
     }
 
     /**
-     * Show admin notice if the addon enabled without psecommerce
+     * Show admin notice if the addon enabled without marketpress
      * @since 1.0.1.9
      */
     function admin_notices()
     {
         $class = "error";
-        $message = __("Die Erweiterung <strong>PSeCommerce Integration</strong> von <strong>PS Jobboard</strong> benötigt <strong>PSeCommerce</strong>", 'psjb');
+        $message = __("Die Erweiterung <strong>MarketPress Integration</strong> von <strong>PS Jobboard</strong> benötigt <strong>MarketPress</strong>", 'psjb');
         echo "<div class=\"$class\"> <p>$message</p></div>";
     }
 
@@ -76,4 +76,4 @@ class JE_PSeCommerce
     }
 }
 
-new JE_PSeCommerce();
+new JE_MarketPress();

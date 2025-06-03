@@ -100,7 +100,7 @@
             if(self.options.theme && self.options.theme.style)
                 self.options.theme.style.apply(self);
 
-            ($.type(self.options.layout.css) === 'function') ? this.options.layout.css.apply(self.$bar) : self.$bar.css(this.options.layout.css || {});
+            (typeof self.options.layout.css === 'function') ? self.options.layout.css.apply(self.$bar) : self.$bar.css(self.options.layout.css || {});
 
             self.$bar.addClass(self.options.layout.addClass);
 
@@ -343,7 +343,7 @@
 
         var instance = $.noty.queue[0];
 
-        if($.type(instance) === 'object') {
+        if (instance !== null && typeof instance === 'object' && !Array.isArray(instance)) {
             if(instance.options.dismissQueue) {
                 if(instance.options.maxVisible > 0) {
                     if($(instance.options.layout.container.selector + ' li').length < instance.options.maxVisible) {

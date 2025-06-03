@@ -144,7 +144,7 @@
         function WebuiPopover(element, options) {
             this.$element = $(element);
             if (options) {
-                if ($.type(options.delay) === 'string' || $.type(options.delay) === 'number') {
+                if (typeof options.delay === 'string' || typeof options.delay === 'number') {
                     options.delay = {
                         show: options.delay,
                         hide: options.delay

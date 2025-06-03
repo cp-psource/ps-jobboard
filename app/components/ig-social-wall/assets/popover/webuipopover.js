@@ -43,7 +43,7 @@
     // The actual plugin constructor
     function WebuiPopover(element, options) {
         this.$element = $(element);
-        if ($.type(options.delay) === 'string' || $.type(options.delay) === 'number') {
+        if (typeof options.delay === 'string' || typeof options.delay === 'number') {
             options.delay = {show: null, hide: options.delay}; // bc break fix
         }
         this.options = $.extend({}, defaults, options);
@@ -58,11 +58,11 @@
         init: function () {
             //init the event handlers
             if (this.options.trigger === 'click') {
-                this.$element.off('click').on('click', $.proxy(this.toggle, this));
+                this.$element.off('click').on('click', this.toggle.bind(this));
             } else {
                 this.$element.off('mouseenter mouseleave')
-                    .on('mouseenter', $.proxy(this.mouseenterHandler, this))
-                    .on('mouseleave', $.proxy(this.mouseleaveHandler, this));
+                    .on('mouseenter', this.mouseenterHandler.bind(this))
+                    .on('mouseleave', this.mouseleaveHandler.bind(this));
             }
             this._poped = false;
             this._inited = true;
@@ -300,8 +300,8 @@
         },
 
         bindBodyEvents: function () {
-            $('body').off('keyup.webui-popover').on('keyup.webui-popover', this.escapeHandler.bind(this));
-            $('body').off('click.webui-popover').on('click.webui-popover', this.bodyClickHandler.bind(this));
+            $('body').off('keyup.webui-popover').on('keyup.webui-popover', $.proxy(this.escapeHandler, this));
+            $('body').off('click.webui-popover').on('click.webui-popover', $.proxy(this.bodyClickHandler, this));
         },
 
         /* event handlers */
@@ -452,7 +452,7 @@
                     break;
                 case 'left':
                     position = {top: pos.top + pos.height / 2 - targetHeight / 2, left: pos.left - targetWidth};
-                    arrowOffset = {left: targetWidth + 35};
+                    arrowOffset = {left: targetWidth+35};
                     break;
                 case 'right':
                     position = {top: pos.top + pos.height / 2 - targetHeight / 2, left: pos.left + pos.width};
@@ -522,4 +522,3 @@
     };
 
 })(jQuery, window, document);
-

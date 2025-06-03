@@ -43,7 +43,7 @@
     // The actual plugin constructor
     function WebuiPopover(element, options) {
         this.$element = $(element);
-        if ($.type(options.delay) === 'string' || $.type(options.delay) === 'number') {
+        if (typeof options.delay === 'string' || typeof options.delay === 'number') {
             options.delay = {show: null, hide: options.delay}; // bc break fix
         }
         this.options = $.extend({}, defaults, options);
@@ -58,11 +58,11 @@
         init: function () {
             //init the event handlers
             if (this.options.trigger === 'click') {
-                this.$element.off('click').on('click', $.proxy(this.toggle, this));
+                this.$element.off('click').on('click', this.toggle.bind(this));
             } else {
                 this.$element.off('mouseenter mouseleave')
-                    .on('mouseenter', $.proxy(this.mouseenterHandler, this))
-                    .on('mouseleave', $.proxy(this.mouseleaveHandler, this));
+                    .on('mouseenter', this.mouseenterHandler.bind(this))
+                    .on('mouseleave', this.mouseleaveHandler.bind(this));
             }
             this._poped = false;
             this._inited = true;
