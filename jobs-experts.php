@@ -1,22 +1,35 @@
 <?php
 /**
  * Plugin Name: PS-Jobboard
- * Plugin URI: https://n3rds.work/piestingtal_source/ps-jobboard-plugin/
+ * Plugin URI: https://cp-psource.github.io/ps-jobboard/
  * Description: Bringe Menschen mit Projekten und Branchenfachleute zusammen - es ist mehr als eine durchschnittliche WordPress-Jobbörse.
  * Version: 1.2.4
- * Author:WMS N@W
- * Author URI: https://n3rds.work
+ * Author: PSOURCE
+ * Author URI: https://nerdservice.eimen.net
  * Text Domain: psjb
  * Domain Path: languages
  * Network: false
  * License: GPLv2 or later
  */
-require 'psource/psource-plugin-update/psource-plugin-updater.php';
-$MyUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-	'https://n3rds.work/wp-update-server/?action=get_metadata&slug=ps-jobboard', 
-	__FILE__, 
-	'ps-jobboard' 
+
+/**
+ * @@@@@@@@@@@@@@@@@ PS UPDATER 1.3 @@@@@@@@@@@
+ **/
+require 'psource/psource-plugin-update/plugin-update-checker.php';
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+ 
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+	'https://github.com/cp-psource/ps-jobboard',
+	__FILE__,
+	'ps-jobboard'
 );
+ 
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('master');
+
+/**
+ * @@@@@@@@@@@@@@@@@ ENDE PS UPDATER 1.3 @@@@@@@@@@@
+ **/
 
 //some shorthand function needed
 function get_max_file_upload() {

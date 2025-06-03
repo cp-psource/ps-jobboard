@@ -86,7 +86,7 @@ class JE_GDPR_Controller {
 			foreach ( $jobs as $job ) {
 				$item           = array(
 					'group_id'    => 'je-jobs',
-					'group_label' => __( 'Jobs & Experts - Jobs', 'psjb' ),
+					'group_label' => __( 'PS Job-Board - Jobs', 'psjb' ),
 					'item_id'     => 'je-job-' . $job->id,
 					'data'        => array(
 						array(
@@ -146,7 +146,7 @@ class JE_GDPR_Controller {
 				}
 				$item           = array(
 					'group_id'    => 'je-experts',
-					'group_label' => __( 'Jobs & Experts - Experts', 'psjb' ),
+					'group_label' => __( 'PS Job-Board - Experts', 'psjb' ),
 					'item_id'     => 'je-expert-' . $expert->id,
 					'data'        => array(
 						array(

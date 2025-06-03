@@ -1,7 +1,7 @@
 <div class="wp-suggested-text">
 	<h2><?php esc_html_e( 'Welche personenbezogenen Daten erheben wir und warum?', 'psjb' ); ?></h2>
 	<p class="privacy-policy-tutorial">
-		<?php _e( 'Jobs & Experts speichert Daten, die über die neuen Auflistungsformulare von Jobs and Experts übermittelt wurden. Außerdem wird eine <strong>verschlüsselte Version der IP-Adresse</strong> für alle Personen gespeichert, die eine Liste anzeigen, um Benutzerstatistiken zu verfolgen.', 'psjb' ); ?>
+		<?php _e( 'PS Job-Board speichert Daten, die über die neuen Auflistungsformulare von Jobs and Experts übermittelt wurden. Außerdem wird eine <strong>verschlüsselte Version der IP-Adresse</strong> für alle Personen gespeichert, die eine Liste anzeigen, um Benutzerstatistiken zu verfolgen.', 'psjb' ); ?>
 	</p>
 	<p class="privacy-policy-tutorial">
 		<strong><?php _e( 'Vollständiger Datensatz für Jobs:', 'psjb' ); ?></strong><br/>

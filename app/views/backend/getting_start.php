@@ -63,7 +63,7 @@
 -->
 					<!--<div class="jbp-demo">
 					<p class="first">
-						<a href="<?php /*echo esc_attr( 'edit.php?post_type=jbp_job&page=jobs-plus-about&create-demo=true' ); */ ?>" class="jbp_button"><?php /*_e( 'Create demo Jobs & Experts content', 'psjb' ); */ ?></a>
+						<a href="<?php /*echo esc_attr( 'edit.php?post_type=jbp_job&page=jobs-plus-about&create-demo=true' ); */ ?>" class="jbp_button"><?php /*_e( 'Create demo PS Job-Board content', 'psjb' ); */ ?></a>
 					</p>
 				</div>-->
 
