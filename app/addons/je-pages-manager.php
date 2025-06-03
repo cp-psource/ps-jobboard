@@ -3,7 +3,7 @@
 /**
  * Name: PS-Jobboard Seiten
  * Description: Verwende Standardseiten anstelle von virtuellen Seiten
- * Author: WMS N@W
+ * Author: PSOURCE
  */
 class JE_Pages_Manager
 {

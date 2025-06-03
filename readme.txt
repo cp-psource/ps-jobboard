@@ -45,5 +45,5 @@ Und erweitere die Möglichkeiten von PS Jobboard um weitere Funktionen, so kanns
 
 = 1.2.1 =
 
-* Overhauled von WMS N@W
-* Release WMS N@W Netzwerksuche
+* Overhauled von PSOURCE
+* Release PSOURCE Netzwerksuche

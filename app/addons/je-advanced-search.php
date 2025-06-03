@@ -3,7 +3,7 @@
 /**
  * Name: Erweiterte Suche
  * Description: Füge ein erweitertes Suchformular für die Auflistungsseite für Jobs und Experten hinzu
- * Author: WMS N@W
+ * Author: PSOURCE
  */
 class JE_Advanced_Search {
 	public function __construct() {

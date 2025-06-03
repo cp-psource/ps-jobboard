@@ -3,7 +3,7 @@
 /**
  * Name: Erweiterter Texteditor
  * Description: Verwende WYSIWYG für das Detailfeld „Jobs/Experten“.
- * Author: WMS N@W
+ * Author: PSOURCE
  */
 class JE_WYSIWYG
 {

@@ -3,15 +3,15 @@
 Plugin Name: PS-Messaging
 Plugin URI: https://n3rds.work/piestingtal-source-project/ps-messaging/
 Description: Private Benutzer-zu-Benutzer-Kommunikation zum Abgeben von Geboten, zum Teilen von Projektspezifikationen und zur versteckten internen Kommunikation. Komplett mit Front-End-Integration, geschützten Kontaktinformationen und geschützter Dateifreigabe.
-Author: WMS N@W
+Author: PSOURCE
 Version: 1.1.1
 Author URI: https://n3rds.work
 Text Domain: private_messaging
 */
 
 /*
-Copyright 2020-2024 WMS N@W (https://n3rds.work)
-Autor – DerN3rd (WMS N@W)
+Copyright 2020-2024 PSOURCE (https://n3rds.work)
+Autor – DerN3rd (PSOURCE)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License (Version 2 - GPLv2) as published by

@@ -3,7 +3,7 @@
 /**
  * Name: Benutzerdefiniertes Layout
  * Description: Dynamisches Layout für die Liste der Jobs/Experten
- * Author: WMS N@W
+ * Author: PSOURCE
  */
 class JE_Custom_Layout
 {

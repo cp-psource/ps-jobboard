@@ -3,7 +3,7 @@
 /**
  * Name: PN-System
  * Description: Dieses Add-On erweitert die Kontaktformularfunktionalität von PS Jobboard zu einem voll ausgestatteten privaten Nachrichtensystem vor Ort.
- * Author: WMS N@W
+ * Author: PSOURCE
  */
 class JE_Message
 {

@@ -3,7 +3,7 @@
 /**
  * Name: Job Demo Daten
  * Description: Erstelle zu Testzwecken zufällige Jobdatensätze.
- * Author: WMS N@W
+ * Author: PSOURCE
  */
 class JE_Job_Demo_Data
 {
@@ -220,7 +220,7 @@ class JE_Job_Demo_Data
                     <label class="col-md-3 label-control"><?php _e('Kategorien', 'psjb') ?></label>
 
                     <div class="col-md-9">
-                        <input type="text" value="Wordpress,Buddypress,Allgemein,WMS N@W" name="dummy_category"
+                        <input type="text" value="Wordpress,Buddypress,Allgemein,PSOURCE" name="dummy_category"
                                class="form-control">
 
                         <p class="help-block"><?php _e('Demo-Jobkategorien, durch Kommas getrennt. Wird zufällig vergeben.', 'psjb') ?></p>

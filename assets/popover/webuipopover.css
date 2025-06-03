@@ -328,3 +328,38 @@
   box-shadow: none;
   float: none;
 }
+/* Responsive Anpassungen */
+@media (max-width: 600px) {
+  .webui-popover {
+    min-width: 0;
+    width: 95vw !important;
+    max-width: 98vw;
+    left: 2vw !important;
+    right: 2vw !important;
+    border-radius: 8px;
+    padding: 0;
+  }
+  .webui-popover .webui-popover-content {
+    max-height: 60vh;
+    overflow-y: auto;
+    font-size: 1rem;
+    padding: 16px;
+  }
+  .webui-popover-title {
+    font-size: 1.1rem;
+    padding: 12px 16px;
+  }
+  .webui-popover-inner .close {
+    font-size: 2rem;
+    margin: 12px 16px 0 0;
+    opacity: 0.5;
+  }
+}
+
+/* Optional: Popover immer mittig auf kleinen Screens */
+@media (max-width: 600px) {
+  .webui-popover {
+    left: 1% !important;
+    transform: translateX(-50%);
+  }
+}

@@ -3,7 +3,7 @@
 /**
  * Name: MarketPress integration
  * Description: MarketPress in PS Jobboard integrieren, MarketPress erforderlich
- * Author: WMS N@W
+ * Author: PSOURCE
  * Required: marketpress/marketpress.php
  */
 class JE_MarketPress

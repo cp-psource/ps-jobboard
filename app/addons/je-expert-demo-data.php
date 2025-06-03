@@ -3,7 +3,7 @@
 /**
  * Name: Experten-Demo-Daten
  * Description: Erstelle zu Testzwecken zufällige Expertendatensätze.
- * Author: WMS N@W
+ * Author: PSOURCE
  */
 class JE_Expert_Demo_Data {
 	public function __construct() {
@@ -49,7 +49,7 @@ class JE_Expert_Demo_Data {
 		$model->contact_email     = $this->content_bank( 'email' );
 		$model->user_id           = get_current_user_id();
 		$model->status            = 'publish';
-		$model->company           = 'WMS N@W';
+		$model->company           = 'PSOURCE';
 		$model->company_url       = 'https://n3rds.work';
 		$model->views_count       = rand( 0, 100 );
 		$model->likes_count       = rand( 0, 100 );

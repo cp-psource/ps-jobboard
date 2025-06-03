@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Author: WMS N@W
+ * Author: PSOURCE
  */
 class JE_Pages_Manager_Model extends IG_Option_Model
 {
