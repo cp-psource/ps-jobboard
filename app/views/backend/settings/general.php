@@ -146,7 +146,7 @@ $form->open(array("attributes" => array("class" => "form-horizontal"))); ?>
 </table>
 <script type="text/javascript">
     jQuery(function ($) {
-        $('.btn-toggle button').click(function () {
+        $('.btn-toggle button').on('click', function () {
             //get the index
             var index = $(this).parent().find('button').index(this);
             var parent = $(this).parent();
@@ -206,7 +206,7 @@ $form->open(array("attributes" => array("class" => "form-horizontal"))); ?>
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
         var addon_has_changed = false;
-        $('.plugin').click(function (e) {
+        $('.plugin').on('click', function (e) {
             e.preventDefault();
             var id = $(this).data('id');
             var that = $(this);
@@ -264,7 +264,7 @@ $form->open(array("attributes" => array("class" => "form-horizontal"))); ?>
         $('#jobs-setting').on('submit', function () {
             addon_has_changed = false;
         });
-        $('.mm-plugin').click(function (e) {
+        $('.mm-plugin').on('click', function (e) {
             var that = $(this);
             e.preventDefault();
             $.ajax({

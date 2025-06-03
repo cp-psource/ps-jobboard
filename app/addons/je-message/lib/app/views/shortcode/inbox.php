@@ -110,7 +110,7 @@
     <?php endif; ?>
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
-            $('.load-conv').click(function () {
+            $('.load-conv').on('click', function () {
                 var that = $(this);
                 $.ajax({
                     type: 'POST',

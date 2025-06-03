@@ -32,9 +32,10 @@ if(!class_exists("SmartDOMDocument")) {
     * 
     * @return bool
     */
-    public function loadHTML($html, $encoding = "UTF-8") {
-      $html = mb_convert_encoding($html, 'HTML-ENTITIES', $encoding);
-      return @parent::loadHTML($html); // suppress warnings
+    public function loadHTML(string $source, int $options = 0): bool {
+      $encoding = "UTF-8";
+      $source = mb_convert_encoding($source, 'HTML-ENTITIES', $encoding);
+      return @parent::loadHTML($source, $options); // suppress warnings
     }
 
     /**
@@ -46,9 +47,9 @@ if(!class_exists("SmartDOMDocument")) {
     */
     public function saveHTMLExact() {
       $content = preg_replace(array("/^\<\!DOCTYPE.*?<html><body>/si",
-                                    "!</body></html>$!si"),
-                              "",
-                              $this->saveHTML());
+      "!</body></html>$!si"),
+      "",
+      $this->saveHTML());
 
       return $content;
     }
@@ -62,12 +63,12 @@ if(!class_exists("SmartDOMDocument")) {
     */
     public static function testHTML() {
       $content = <<<CONTENT
-<div class='class1'>
-  <img src='http://www.google.com/favicon.ico' />
-  Some Text
-  <p>русский</p>
-</div>
-CONTENT;
+      <div class='class1'>
+        <img src='http://www.google.com/favicon.ico' />
+        Some Text
+        <p>русский</p>
+      </div>
+      CONTENT;
 
       print "Before removing the image, the content is: \n" . htmlspecialchars($content) . "<br>\n";
 

@@ -22,7 +22,7 @@
 
             var json = file_frame.state().get( 'selection' ).first().toJSON();
 
-            if ( 0 > $.trim( json.url.length ) ) {
+            if ( 0 > String(json.url).trim().length ) {
                 return;
             }
 
@@ -50,7 +50,7 @@
             
         });
         
-        $( '#je_ftr_img_rmv' ).click( function( e ) {
+        $( '#je_ftr_img_rmv' ).on('click', function( e ) {
             e.preventDefault();
             
             $( this ).addClass( 'hidden' );

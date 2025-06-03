@@ -54,7 +54,7 @@
                                                             class="fa fa-thumbs-up"></i></button>
                                                 <script type="text/javascript">
                                                     jQuery(document).ready(function ($) {
-                                                        $('.expert-like').click(function () {
+                                                        $('.expert-like').on('click', function () {
                                                             var that = $(this);
                                                             $.ajax({
                                                                 type: 'POST',

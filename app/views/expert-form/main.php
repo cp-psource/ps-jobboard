@@ -326,7 +326,7 @@
         $('body').on('click', '.can-edit-cancel', function () {
             instance.webuiPopover('hide');
         });
-        $('.je-expert-submit').click(function () {
+        $('.je-expert-submit').on('click', function () {
             $(this).addClass('disabled').text('<?php echo esc_js(__("Einreichen...")) ?>');
         })
     })

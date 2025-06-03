@@ -79,7 +79,7 @@
 </div>
 <script type="text/javascript">
     jQuery(document).ready(function ($) {
-        $('.mm-plugin').click(function (e) {
+        $('.mm-plugin').on('click', function (e) {
             var that = $(this);
             e.preventDefault();
             $.ajax({
@@ -100,7 +100,7 @@
                 }
             })
         });
-        $('.mm-create-page').click(function (e) {
+        $('.mm-create-page').on('click', function (e) {
             var that = $(this);
             $.ajax({
                 type: 'POST',

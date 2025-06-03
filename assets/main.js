@@ -1,4 +1,4 @@
-jQuery(document).ready(function ($) {
+jQuery(function ($) {
     //auto set icon size
     if ($('.hn-widget').length > 0) {
         $('.hn-widget').find('.hn-widget-body').each(function () {

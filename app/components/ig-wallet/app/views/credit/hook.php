@@ -18,7 +18,7 @@
 </div>
 <script>
     jQuery(function ($) {
-        $('.panel-heading').css('cursor', 'pointer').click(function () {
+        $('.panel-heading').css('cursor', 'pointer').on('click', function () {
             var body = $(this).next();
             if (body.is(':hidden')) {
                 body.slideDown();

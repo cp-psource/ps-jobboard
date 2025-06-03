@@ -254,7 +254,7 @@
                 }
             } else if (!this.content) {
                 var content = '';
-                if ($.isFunction(this.options.content)) {
+                if (typeof this.options.content === "function") {
                     content = this.options.content.apply(this.$element[0], arguments);
                 } else {
                     content = this.options.content;
@@ -283,7 +283,7 @@
                     }
                 },
                 success: function (data) {
-                    if (content && $.isFunction(content)) {
+                    if (content && typeof content === "function") {
                         that.content = content.apply(that.$element[0], [data]);
                     } else {
                         that.content = data;

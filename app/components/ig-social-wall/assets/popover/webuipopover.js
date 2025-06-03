@@ -254,7 +254,7 @@
                 }
             } else if (!this.content) {
                 var content = '';
-                if ($.isFunction(this.options.content)) {
+                if (typeof this.options.content === "function") {
                     content = this.options.content.apply(this.$element[0], arguments);
                 } else {
                     content = this.options.content;
@@ -283,7 +283,7 @@
                     }
                 },
                 success: function (data) {
-                    if (content && $.isFunction(content)) {
+                    if (content && typeof content === "function") {
                         that.content = content.apply(that.$element[0], [data]);
                     } else {
                         that.content = data;
@@ -300,8 +300,8 @@
         },
 
         bindBodyEvents: function () {
-            $('body').off('keyup.webui-popover').on('keyup.webui-popover', $.proxy(this.escapeHandler, this));
-            $('body').off('click.webui-popover').on('click.webui-popover', $.proxy(this.bodyClickHandler, this));
+            $('body').off('keyup.webui-popover').on('keyup.webui-popover', this.escapeHandler.bind(this));
+            $('body').off('click.webui-popover').on('click.webui-popover', this.bodyClickHandler.bind(this));
         },
 
         /* event handlers */

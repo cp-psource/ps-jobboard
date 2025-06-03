@@ -75,7 +75,7 @@
                     var $button = jQuery('<button/>').addClass((button.addClass) ? button.addClass : 'gray').html(button.text).attr('id', button.id ? button.id : 'button-' + i)
                         .appendTo(self.$bar.find('.noty_buttons'))
                         .on('click', function() {
-                            if(jQuery.isFunction(button.onClick)) {
+                            if(typeof button.onClick === "function") {
                                 button.onClick.call($button, self);
                             }
                         });

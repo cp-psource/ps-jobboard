@@ -254,7 +254,7 @@
                 }
             } else if (!this.content) {
                 var content = '';
-                if ($.isFunction(this.options.content)) {
+                if (typeof this.options.content === "function") {
                     content = this.options.content.apply(this.$element[0], arguments);
                 } else {
                     content = this.options.content;
@@ -283,7 +283,7 @@
                     }
                 },
                 success: function (data) {
-                    if (content && $.isFunction(content)) {
+                    if (content && typeof content === "function") {
                         that.content = content.apply(that.$element[0], [data]);
                     } else {
                         that.content = data;
@@ -300,8 +300,8 @@
         },
 
         bindBodyEvents: function () {
-            $('body').off('keyup.webui-popover').on('keyup.webui-popover', $.proxy(this.escapeHandler, this));
-            $('body').off('click.webui-popover').on('click.webui-popover', $.proxy(this.bodyClickHandler, this));
+            $('body').off('keyup.webui-popover').on('keyup.webui-popover', this.escapeHandler.bind(this));
+            $('body').off('click.webui-popover').on('click.webui-popover', this.bodyClickHandler.bind(this));
         },
 
         /* event handlers */
@@ -345,11 +345,11 @@
         initTargetEvents: function () {
             if (this.options.trigger !== 'click') {
                 this.$target.off('mouseenter mouseleave')
-                    .on('mouseenter', $.proxy(this.mouseenterHandler, this))
-                    .on('mouseleave', $.proxy(this.mouseleaveHandler, this));
+                    .on('mouseenter', this.mouseenterHandler.bind(this))
+                    .on('mouseleave', this.mouseleaveHandler.bind(this));
             }
-            this.$target.find('.close').off('click').on('click', $.proxy(this.hide, this));
-            this.$target.off('click.webui-popover').on('click.webui-popover', $.proxy(this.targetClickHandler, this));
+            this.$target.find('.close').off('click').on('click', this.hide.bind(this));
+            this.$target.off('click.webui-popover').on('click.webui-popover', this.targetClickHandler.bind(this));
         },
         /* utils methods */
         //caculate placement of the popover

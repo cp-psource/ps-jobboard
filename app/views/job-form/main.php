@@ -284,7 +284,7 @@ $lang       = str_replace( '_', '-', $lang );
 				return '<?php esc_attr_e('Keine Treffer gefunden','psjb') ?>'
 			}
 		});
-		$('.job-submit').click(function () {
+		$('.job-submit').on('click', function () {
 			$(this).addClass('disabled').text('<?php echo esc_js(__("Einreichen...",'psjb')) ?>');
 		})
 	})

@@ -73,7 +73,7 @@
 <script>
     jQuery(function ($) {
         $("#tabs").tabs();
-        $('.log-cats button').click(function () {
+        $('.log-cats button').on('click', function () {
             var cat = $(this).data('category');
 
             if (cat == '<?php echo sanitize_title(__('All','psjb')) ?>') {

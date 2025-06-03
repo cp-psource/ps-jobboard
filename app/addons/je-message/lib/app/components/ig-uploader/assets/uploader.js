@@ -176,7 +176,7 @@ jQuery(function ($) {
             $(this).find('.igu-media-file-land').css('width', '49%');
         }
     })
-    $(window).scroll(function () {
+    $(window).on('scroll', function () {
         if (igu_uploader != undefined && igu_uploader.instance != undefined && typeof igu_uploader.instance == 'object') {
             var pop = igu_uploader.instance.data('plugin_webuiPopover');
             if (pop!=undefined && pop.$target.is(':visible')) {
